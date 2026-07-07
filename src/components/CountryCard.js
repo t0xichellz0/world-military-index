@@ -12,39 +12,70 @@ const CATEGORIES = [
 export default function CountryCard({ country, rank }) {
   return (
     <div style={{
-      background: '#0b1120', border: '1px solid #1e2d45',
-      borderRadius: 10, padding: '16px 20px',
-      display: 'grid', gridTemplateColumns: '48px 1fr 100px',
-      gap: 16, alignItems: 'center', marginBottom: 8,
-      borderLeft: rank <= 3 ? '3px solid #c8a84b' : '3px solid #1e2d45'
+      background: '#0b1120',
+      border: '1px solid #1e2d45',
+      borderRadius: 10,
+      padding: '14px 16px',
+      marginBottom: 8,
+      borderLeft: rank <= 3 ? '3px solid #c8a84b' : '3px solid #1e2d45',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 10,
     }}>
-      <div style={{ fontFamily: 'serif', fontSize: 24, fontWeight: 700, color: rank === 1 ? '#c8a84b' : '#5a7090', textAlign: 'center' }}>
-        {rank}
-      </div>
-      <div>
-        <div style={{ fontFamily: 'serif', fontSize: 16, fontWeight: 700, marginBottom: 10, color: '#e8edf5' }}>
-          {country.Country}
+      {/* Top row — rank, name, total */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{
+            fontFamily: 'serif', fontSize: 22, fontWeight: 700,
+            color: rank === 1 ? '#c8a84b' : rank === 2 ? '#a0a8b8' : rank === 3 ? '#a0805a' : '#5a7090',
+            minWidth: 28
+          }}>
+            {rank}
+          </div>
+          <div style={{ fontFamily: 'serif', fontSize: 16, fontWeight: 700, color: '#e8edf5' }}>
+            {country.Country}
+          </div>
         </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontFamily: 'serif', fontSize: 24, fontWeight: 700, color: '#e8edf5', lineHeight: 1 }}>
+            {Number(country.Total).toFixed(1)}
+          </div>
+          <div style={{ fontFamily: 'monospace', fontSize: 9, color: '#5a7090' }}>/ 100</div>
+        </div>
+      </div>
+
+      {/* Score bars */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
         {CATEGORIES.map(cat => {
-          const pct = Math.round((country[cat.key] / cat.max) * 100);
+          const val = country[cat.key] || 0;
+          const pct = Math.min(Math.round((val / cat.max) * 100), 100);
           return (
-            <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-              <div style={{ fontFamily: 'monospace', fontSize: 9, color: '#5a7090', width: 90 }}>{cat.key}</div>
-              <div style={{ flex: 1, height: 4, background: '#1e2d45', borderRadius: 2, maxWidth: 200 }}>
-                <div style={{ width: `${pct}%`, height: '100%', background: cat.color, borderRadius: 2 }} />
+            <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div style={{
+                fontFamily: 'monospace', fontSize: 8,
+                color: '#5a7090', width: 70, flexShrink: 0
+              }}>
+                {cat.key}
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: 9, color: '#5a7090', width: 28, textAlign: 'right' }}>
-                {country[cat.key]}
+              <div style={{
+                flex: 1, height: 5,
+                background: '#1e2d45', borderRadius: 3, overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: `${pct}%`, height: '100%',
+                  background: cat.color, borderRadius: 3
+                }} />
+              </div>
+              <div style={{
+                fontFamily: 'monospace', fontSize: 8,
+                color: '#5a7090', width: 32,
+                textAlign: 'right', flexShrink: 0
+              }}>
+                {val % 1 === 0 ? val : val.toFixed(2)}
               </div>
             </div>
           );
         })}
-      </div>
-      <div style={{ textAlign: 'right' }}>
-        <div style={{ fontFamily: 'serif', fontSize: 28, fontWeight: 700, color: '#e8edf5' }}>
-          {Number(country.Total).toFixed(1)}
-        </div>
-        <div style={{ fontFamily: 'monospace', fontSize: 9, color: '#5a7090', marginTop: 4 }}>/ 100</div>
       </div>
     </div>
   );

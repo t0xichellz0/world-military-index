@@ -3,6 +3,11 @@ import Papa from 'papaparse';
 
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTMmVA2HmgM8MLrlj31DcYL-xnxFupMGODiWbu1v-iAlyXLV7NTUQ3nNQ2Z3B8dI2QYg9aZbD8nCoBt/pub?output=csv';
 
+function parseNum(val) {
+  if (val === null || val === undefined || val === '') return 0;
+  return parseFloat(String(val).replace(',', '.')) || 0;
+}
+
 export function useSheetData() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,10 +16,23 @@ export function useSheetData() {
     Papa.parse(SHEET_URL, {
       download: true,
       header: true,
-      dynamicTyping: true,
       complete: (results) => {
+        // Log exact column names from sheet
+        console.log('COLUMNS:', Object.keys(results.data[0]));
+        console.log('FIRST ROW:', results.data[0]);
+        
         const sorted = results.data
           .filter(row => row.Country)
+          .map(row => ({
+            Country: row.Country,
+            Personnel: parseNum(row.Personnel),
+            Arms: parseNum(row.Arms),
+            Nuclear: parseNum(row.Nuclear),
+            Combat: parseNum(row.Combat),
+            Willingness: parseNum(row.Willingness),
+            Budget: parseNum(row.Budget),
+            Total: parseNum(row.Total),
+          }))
           .sort((a, b) => b.Total - a.Total);
         setData(sorted);
         setLoading(false);
@@ -23,4 +41,4 @@ export function useSheetData() {
   }, []);
 
   return { data, loading };
-}   
+}
