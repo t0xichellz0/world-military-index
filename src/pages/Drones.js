@@ -122,7 +122,7 @@ export default function Drones() {
           Drone Arsenal Classification
         </div>
         <div style={{ fontSize: 12.5, color: '#5a7090', lineHeight: 1.7 }}>
-          No existing military index accounts for drone capability. Global Firepower ignores drones entirely. This section proposes the first open-source tier-based classification framework for comparing drone arsenals across states. Scores are qualitative assessments based on open-source intelligence — not yet quantified. Methodology under active peer review.
+          No existing military index accounts for drone capability. This section proposes the first open-source tier-based classification framework for comparing drone arsenals across states. Scores are qualitative assessments based on open-source intelligence — not yet quantified. Methodology under active peer review.
         </div>
       </div>
 
@@ -136,15 +136,13 @@ export default function Drones() {
             <div key={t.tier} style={{
               background: '#0b1120', border: '1px solid #1e2d45',
               borderRadius: 8, padding: '12px 16px',
-              display: 'flex', gap: 12, alignItems: 'flex-start',
-              flexWrap: 'wrap'
+              display: 'flex', gap: 12, alignItems: 'flex-start', flexWrap: 'wrap'
             }}>
               <div style={{
                 fontFamily: 'monospace', fontSize: 10, fontWeight: 500,
                 color: t.color, background: `${t.color}18`,
                 border: `1px solid ${t.color}44`,
-                padding: '4px 10px', borderRadius: 4,
-                flexShrink: 0, alignSelf: 'flex-start'
+                padding: '4px 10px', borderRadius: 4, flexShrink: 0
               }}>
                 {t.tier}
               </div>
@@ -179,19 +177,31 @@ export default function Drones() {
       </div>
 
       {/* Country profiles */}
-      <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: '#5a7090', marginBottom: 12 }}>
-        Country Assessments — Tap to expand
+      <div style={{ marginBottom: 12 }}>
+        <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: '#5a7090', marginBottom: 8 }}>
+          Country Assessments
+        </div>
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 6,
+          background: 'rgba(75,139,200,0.08)', border: '1px solid rgba(75,139,200,0.2)',
+          borderRadius: 6, padding: '6px 12px', marginBottom: 12
+        }}>
+          <span style={{ fontSize: 13 }}></span>
+          <span style={{ fontSize: 12, color: '#4b8bc8', fontFamily: 'monospace' }}>
+            Click any country to expand its full tier breakdown
+          </span>
+        </div>
       </div>
+
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {COUNTRIES.map(country => {
           const isOpen = activeCountry === country.name;
           return (
             <div key={country.name} style={{
-              background: '#0b1120', border: `1px solid ${isOpen ? 'rgba(200,168,75,0.3)' : '#1e2d45'}`,
-              borderRadius: 10, overflow: 'hidden',
-              transition: 'border-color 0.2s'
+              background: '#0b1120',
+              border: `1px solid ${isOpen ? 'rgba(200,168,75,0.3)' : '#1e2d45'}`,
+              borderRadius: 10, overflow: 'hidden'
             }}>
-              {/* Country header */}
               <div
                 onClick={() => setActiveCountry(isOpen ? null : country.name)}
                 style={{
@@ -203,7 +213,7 @@ export default function Drones() {
                 <div style={{ fontFamily: 'serif', fontSize: 15, fontWeight: 700, color: '#e8edf5' }}>
                   {country.name}
                 </div>
-                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end', alignItems: 'center' }}>
                   {Object.entries(country.tiers).map(([tier, data]) => {
                     const cfg = LEVEL_CONFIG[data.level];
                     return (
@@ -217,10 +227,12 @@ export default function Drones() {
                       </div>
                     );
                   })}
+                  <span style={{ color: '#5a7090', fontSize: 12, marginLeft: 4 }}>
+                    {isOpen ? '▲' : '▼'}
+                  </span>
                 </div>
               </div>
 
-              {/* Expanded detail */}
               {isOpen && (
                 <div style={{ padding: '0 16px 16px', borderTop: '1px solid #1e2d45' }}>
                   <div style={{ paddingTop: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -242,8 +254,7 @@ export default function Drones() {
                             }}>
                               <div style={{
                                 width: cfg.width, height: '100%',
-                                background: cfg.color, borderRadius: 3,
-                                transition: 'width 0.6s ease'
+                                background: cfg.color, borderRadius: 3
                               }} />
                             </div>
                             <div style={{
@@ -268,9 +279,8 @@ export default function Drones() {
                     marginTop: 14, padding: '8px 12px',
                     background: 'rgba(200,168,75,0.06)',
                     border: '1px solid rgba(200,168,75,0.15)',
-                    borderRadius: 6,
-                    fontFamily: 'monospace', fontSize: 9,
-                    color: '#5a7090', letterSpacing: 0.5
+                    borderRadius: 6, fontFamily: 'monospace',
+                    fontSize: 9, color: '#5a7090', letterSpacing: 0.5
                   }}>
                     ⚠ Assessments are qualitative estimates based on open-source intelligence. Not yet quantified. Under peer review.
                   </div>
