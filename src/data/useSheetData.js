@@ -8,19 +8,23 @@ function parseNum(val) {
   return parseFloat(String(val).replace(',', '.')) || 0;
 }
 
+let cachedData = null;
+
 export function useSheetData() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(cachedData || []);
+  const [loading, setLoading] = useState(!cachedData);
 
   useEffect(() => {
+    if (cachedData) {
+      setData(cachedData);
+      setLoading(false);
+      return;
+    }
+
     Papa.parse(SHEET_URL, {
       download: true,
       header: true,
       complete: (results) => {
-        // Log exact column names from sheet
-        console.log('COLUMNS:', Object.keys(results.data[0]));
-        console.log('FIRST ROW:', results.data[0]);
-        
         const sorted = results.data
           .filter(row => row.Country)
           .map(row => ({
@@ -34,6 +38,7 @@ export function useSheetData() {
             Total: parseNum(row.Total),
           }))
           .sort((a, b) => b.Total - a.Total);
+        cachedData = sorted;
         setData(sorted);
         setLoading(false);
       }
