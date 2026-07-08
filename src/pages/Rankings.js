@@ -8,8 +8,8 @@ export default function Rankings() {
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   if (loading) return (
-    <div style={{ textAlign: 'center', padding: 60, color: '#5a7090', fontFamily: 'monospace' }}>
-      Loading data...
+    <div style={{ textAlign: 'center', padding: 80, color: '#5a7090', fontFamily: 'monospace', fontSize: 12 }}>
+      LOADING DATA...
     </div>
   );
 
@@ -25,17 +25,31 @@ export default function Rankings() {
   }
 
   return (
-    <div style={{ padding: '16px', maxWidth: 900, margin: '0 auto' }}>
+    <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto' }}>
       <div style={{
-        display: 'flex', justifyContent: 'space-between',
-        alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 8
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 28,
+        flexWrap: 'wrap',
+        gap: 10
       }}>
-        <div style={{ fontFamily: 'serif', fontSize: 18, fontStyle: 'italic', color: '#5a7090' }}>
+        <div style={{
+          fontFamily: 'serif',
+          fontSize: 20,
+          fontStyle: 'italic',
+          color: '#7a90ad'
+        }}>
           Top Military Powers — Current Assessment
         </div>
         <div style={{
-          fontFamily: 'monospace', fontSize: 11, color: '#c8a84b',
-          border: '1px solid rgba(200,168,75,0.3)', padding: '4px 12px', borderRadius: 4
+          fontFamily: 'monospace',
+          fontSize: 11,
+          color: '#c8a84b',
+          border: '1px solid rgba(200,168,75,0.35)',
+          padding: '5px 14px',
+          borderRadius: 6,
+          letterSpacing: 1
         }}>
           2026
         </div>
