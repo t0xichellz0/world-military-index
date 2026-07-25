@@ -8,27 +8,21 @@ export default function App() {
   const [page, setPage] = useState('Rankings');
 
   return (
-    <div style={{ background: '#05080f', minHeight: '100vh', color: '#e8edf5' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh', color: '#1a1a1a', fontFamily: 'Georgia, serif' }}>
       <div style={{
-        background: '#0b1120',
-        borderBottom: '1px solid #1e2d45',
-        padding: '4px 32px',
+        borderBottom: '1px solid #d0d0d0',
+        padding: '20px 32px',
         display: 'flex',
         alignItems: 'center',
-        gap: 18
+        gap: 16
       }}>
         <img
           src="/wmi-logo.png"
           alt="World Military Index"
-          style={{
-            height: 90,
-            width: 'auto',
-            filter: 'brightness(0) invert(1)',
-            opacity: 0.95
-          }}
+          style={{ height: 48, width: 'auto' }}
         />
-        <div style={{ fontFamily: 'serif', fontSize: 26, fontWeight: 700 }}>
-          World <span style={{ color: '#c8a84b' }}>Military</span> Index
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: '#1a1a1a' }}>
+          World Military Index
         </div>
       </div>
       <Navbar page={page} setPage={setPage} />

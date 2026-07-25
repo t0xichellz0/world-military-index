@@ -8,8 +8,8 @@ export default function Rankings() {
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   if (loading) return (
-    <div style={{ textAlign: 'center', padding: 80, color: '#5a7090', fontFamily: 'monospace', fontSize: 12 }}>
-      LOADING DATA...
+    <div style={{ textAlign: 'center', padding: 80, color: '#666', fontSize: 13 }}>
+      Loading data...
     </div>
   );
 
@@ -30,25 +30,24 @@ export default function Rankings() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 28,
+        marginBottom: 24,
         flexWrap: 'wrap',
         gap: 10
       }}>
         <div style={{
-          fontFamily: 'serif',
-          fontSize: 20,
+          fontFamily: 'Georgia, serif',
+          fontSize: 18,
           fontStyle: 'italic',
-          color: '#7a90ad'
+          color: '#444'
         }}>
           Top Military Powers — Current Assessment
         </div>
         <div style={{
-          fontFamily: 'monospace',
           fontSize: 11,
-          color: '#c8a84b',
-          border: '1px solid rgba(200,168,75,0.35)',
+          color: '#1a1a1a',
+          border: '1px solid #d0d0d0',
           padding: '5px 14px',
-          borderRadius: 6,
+          borderRadius: 3,
           letterSpacing: 1
         }}>
           2026
