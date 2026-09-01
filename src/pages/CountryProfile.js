@@ -12,26 +12,53 @@ const SCORE_CATEGORIES = [
 
 const TABS = ['Overview', 'Manpower', 'Land', 'Airpower', 'Naval', 'Nuclear'];
 
-function StatCard({ label, value, sub }) {
+function safeText(val) {
+  if (val && typeof val === 'object' && 'value' in val) {
+    return val.value;
+  }
+  return val || '';
+}
+
+function StatCard({ label, field, sub }) {
+  const isFieldObj = field && typeof field === 'object' && 'value' in field;
+  const val = isFieldObj ? field.value : (field ?? '');
+  const sourceCount = isFieldObj ? (field.sources?.length || 0) : 0;
+  const verified = isFieldObj ? !!field.verified : false;
+  const displayVal = val === '' || val === null || val === undefined ? 'Pending' : val;
+
   return (
     <div style={{
       background: '#fafafa',
       border: '1px solid #ddd',
       borderRadius: 4,
       padding: '16px 18px',
+      overflow: 'hidden',
     }}>
-      <div style={{
-        fontSize: 10.5, color: '#888',
-        letterSpacing: 1, marginBottom: 8,
-        textTransform: 'uppercase'
-      }}>
-        {label}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, gap: 8 }}>
+        <div style={{
+          fontSize: 10.5, color: '#888',
+          letterSpacing: 1,
+          textTransform: 'uppercase'
+        }}>
+          {label}
+        </div>
+        {sourceCount > 0 && (
+          <div style={{
+            fontSize: 9, color: verified ? '#2a7a3b' : '#c07800',
+            border: `1px solid ${verified ? '#2a7a3b44' : '#c0780044'}`,
+            padding: '1px 6px', borderRadius: 3,
+            flexShrink: 0
+          }}>
+            {sourceCount} src{sourceCount > 1 ? 's' : ''}{verified ? ' ✓' : ''}
+          </div>
+        )}
       </div>
       <div style={{
-        fontFamily: 'Georgia, serif', fontSize: 21,
-        fontWeight: 700, color: '#1a1a1a', lineHeight: 1.2
+        fontFamily: 'Georgia, serif', fontSize: 17,
+        fontWeight: 700, color: displayVal === 'Pending' ? '#ccc' : '#1a1a1a', lineHeight: 1.3,
+        wordBreak: 'break-word'
       }}>
-        {value}
+        {displayVal}
       </div>
       {sub && <div style={{ fontSize: 11.5, color: '#888', marginTop: 6, lineHeight: 1.5 }}>{sub}</div>}
     </div>
@@ -147,7 +174,7 @@ export default function CountryProfile({ country, rank, onBack }) {
               </div>
               {profile && (
                 <div style={{ fontSize: 14, color: '#444', marginTop: 14, maxWidth: 520, lineHeight: 1.8 }}>
-                  {profile.overview}
+                  {safeText(profile.overview)}
                 </div>
               )}
             </div>
@@ -230,17 +257,17 @@ export default function CountryProfile({ country, rank, onBack }) {
             <div>
               <SectionHeader title="Manpower" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Population" value={profile.manpower.total_population} />
-                <StatCard label="Available Manpower" value={profile.manpower.available_manpower} />
-                <StatCard label="Active Personnel" value={profile.manpower.active_personnel} />
-                <StatCard label="Reserve Personnel" value={profile.manpower.reserve_personnel} />
-                <StatCard label="Paramilitary" value={profile.manpower.paramilitary} />
+                <StatCard label="Total Population" field={profile.manpower.total_population} />
+                <StatCard label="Available Manpower" field={profile.manpower.available_manpower} />
+                <StatCard label="Active Personnel" field={profile.manpower.active_personnel} />
+                <StatCard label="Reserve Personnel" field={profile.manpower.reserve_personnel} />
+                <StatCard label="Paramilitary" field={profile.manpower.paramilitary} />
               </div>
               <SectionHeader title="Service Branch Personnel" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Army Personnel" value={profile.manpower.army_personnel} />
-                <StatCard label="Navy Personnel" value={profile.manpower.navy_personnel} />
-                <StatCard label="Air Force Personnel" value={profile.manpower.airforce_personnel} />
+                <StatCard label="Army Personnel" field={profile.manpower.army_personnel} />
+                <StatCard label="Navy Personnel" field={profile.manpower.navy_personnel} />
+                <StatCard label="Air Force Personnel" field={profile.manpower.airforce_personnel} />
               </div>
             </div>
           )}
@@ -249,11 +276,11 @@ export default function CountryProfile({ country, rank, onBack }) {
             <div>
               <SectionHeader title="Land Forces" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Main Battle Tanks" value={profile.land.tanks} />
-                <StatCard label="Armored Vehicles" value={profile.land.armored_vehicles} />
-                <StatCard label="Self-Propelled Artillery" value={profile.land.self_propelled_artillery} />
-                <StatCard label="Towed Artillery" value={profile.land.towed_artillery} />
-                <StatCard label="Rocket Artillery (MLRS)" value={profile.land.rocket_artillery} />
+                <StatCard label="Main Battle Tanks" field={profile.land.tanks} />
+                <StatCard label="Armored Vehicles" field={profile.land.armored_vehicles} />
+                <StatCard label="Self-Propelled Artillery" field={profile.land.self_propelled_artillery} />
+                <StatCard label="Towed Artillery" field={profile.land.towed_artillery} />
+                <StatCard label="Rocket Artillery (MLRS)" field={profile.land.rocket_artillery} />
               </div>
             </div>
           )}
@@ -262,14 +289,14 @@ export default function CountryProfile({ country, rank, onBack }) {
             <div>
               <SectionHeader title="Air Power" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Active Aircraft" value={profile.airpower.total_aircraft} sub="All types combined" />
-                <StatCard label="Fighter Aircraft" value={profile.airpower.fighters} />
-                <StatCard label="Attack Aircraft" value={profile.airpower.attack_aircraft} />
-                <StatCard label="Transport Aircraft" value={profile.airpower.transport} />
-                <StatCard label="Trainer Aircraft" value={profile.airpower.trainers} />
-                <StatCard label="Total Helicopters" value={profile.airpower.helicopters} />
-                <StatCard label="Attack Helicopters" value={profile.airpower.attack_helicopters} />
-                <StatCard label="Aerial Tankers" value={profile.airpower.tanker_fleet} />
+                <StatCard label="Total Active Aircraft" field={profile.airpower.total_aircraft} sub="All types combined" />
+                <StatCard label="Fighter Aircraft" field={profile.airpower.fighters} />
+                <StatCard label="Attack Aircraft" field={profile.airpower.attack_aircraft} />
+                <StatCard label="Transport Aircraft" field={profile.airpower.transport} />
+                <StatCard label="Trainer Aircraft" field={profile.airpower.trainers} />
+                <StatCard label="Total Helicopters" field={profile.airpower.helicopters} />
+                <StatCard label="Attack Helicopters" field={profile.airpower.attack_helicopters} />
+                <StatCard label="Aerial Tankers" field={profile.airpower.tanker_fleet} />
               </div>
             </div>
           )}
@@ -278,14 +305,14 @@ export default function CountryProfile({ country, rank, onBack }) {
             <div>
               <SectionHeader title="Naval Forces" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Battle Force Ships" value={profile.naval.total_assets} />
-                <StatCard label="Aircraft Carriers" value={profile.naval.aircraft_carriers} sub="Largest carrier fleet in the world" />
-                <StatCard label="Helicopter Carriers" value={profile.naval.helicopter_carriers} />
-                <StatCard label="Destroyers" value={profile.naval.destroyers} />
-                <StatCard label="Submarines" value={profile.naval.submarines} sub="All nuclear-powered" />
-                <StatCard label="Frigates" value={profile.naval.frigates} />
-                <StatCard label="Corvettes" value={profile.naval.corvettes} />
-                <StatCard label="Patrol Vessels" value={profile.naval.patrol_vessels} />
+                <StatCard label="Total Battle Force Ships" field={profile.naval.total_assets} />
+                <StatCard label="Aircraft Carriers" field={profile.naval.aircraft_carriers} sub="Largest carrier fleet in the world" />
+                <StatCard label="Helicopter Carriers" field={profile.naval.helicopter_carriers} />
+                <StatCard label="Destroyers" field={profile.naval.destroyers} />
+                <StatCard label="Submarines" field={profile.naval.submarines} sub="All nuclear-powered" />
+                <StatCard label="Frigates" field={profile.naval.frigates} />
+                <StatCard label="Corvettes" field={profile.naval.corvettes} />
+                <StatCard label="Patrol Vessels" field={profile.naval.patrol_vessels} />
               </div>
             </div>
           )}
@@ -294,36 +321,37 @@ export default function CountryProfile({ country, rank, onBack }) {
             <div>
               <SectionHeader title="Nuclear Capability" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14, marginBottom: 18 }}>
-                <StatCard label="Nuclear Power" value={profile.nuclear.has_nuclear ? 'Yes' : 'No'} />
-                <StatCard label="Nuclear Triad" value={profile.nuclear.has_triad ? 'Yes' : 'No'} />
-                <StatCard label="Estimated Warheads" value={profile.nuclear.warheads} />
+                <StatCard
+                  label="Nuclear Power"
+                  field={{
+                    value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No',
+                    sources: profile.nuclear.has_nuclear?.sources,
+                    verified: profile.nuclear.has_nuclear?.verified
+                  }}
+                />
+                <StatCard
+                  label="Nuclear Triad"
+                  field={{
+                    value: profile.nuclear.has_triad?.value ? 'Yes' : 'No',
+                    sources: profile.nuclear.has_triad?.sources,
+                    verified: profile.nuclear.has_triad?.verified
+                  }}
+                />
+                <StatCard label="Estimated Warheads" field={profile.nuclear.warheads} />
               </div>
               <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '18px 22px', marginBottom: 10 }}>
                 <div style={{ fontSize: 10.5, color: '#888', letterSpacing: 1.5, marginBottom: 8, textTransform: 'uppercase' }}>Nuclear Note</div>
-                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{profile.nuclear.note}</div>
+                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{safeText(profile.nuclear.note)}</div>
               </div>
 
               <SectionHeader title="Defence Budget" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14, marginBottom: 18 }}>
-                <StatCard label="Annual Budget (USD)" value={profile.budget.annual_usd} />
-                <StatCard label="Percentage of GDP" value={profile.budget.pct_gdp} />
+                <StatCard label="Annual Budget (USD)" field={profile.budget.annual_usd} />
+                <StatCard label="Percentage of GDP" field={profile.budget.pct_gdp} />
               </div>
               <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '18px 22px', marginBottom: 18 }}>
                 <div style={{ fontSize: 10.5, color: '#888', letterSpacing: 1.5, marginBottom: 8, textTransform: 'uppercase' }}>Budget Note</div>
-                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{profile.budget.note}</div>
-              </div>
-
-              <SectionHeader title="Sources" />
-              <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '18px 22px' }}>
-                {profile.sources.map((s, i) => (
-                  <div key={i} style={{
-                    fontSize: 12.5, color: '#444', lineHeight: 2,
-                    borderBottom: i < profile.sources.length - 1 ? '1px solid #eee' : 'none',
-                    paddingBottom: 6, marginBottom: 6
-                  }}>
-                    {s}
-                  </div>
-                ))}
+                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{safeText(profile.budget.note)}</div>
               </div>
             </div>
           )}
