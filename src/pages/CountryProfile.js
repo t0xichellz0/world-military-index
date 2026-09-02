@@ -3,8 +3,8 @@ import { PROFILES } from '../data/countryProfiles';
 
 const SCORE_CATEGORIES = [
   { key: 'Personnel', label: 'Military Personnel', max: 20, desc: 'Active members and conscription system assessment.' },
-  { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Main battle tanks, fighter jets, and naval vessels.' },
-  { key: 'Drones', label: 'Drone Capability', max: 10, desc: 'Weighted from Conventional Arms — tactical, operational, and strategic drone inventory.' },
+  { key: 'Arms', label: 'Conventional Arms', max: 12, desc: 'Main battle tanks, fighter jets, and naval vessels.' },
+  { key: 'Drones', label: 'Drone Capability', max: 8, desc: 'Weighted from Conventional Arms — tactical, operational, and strategic drone inventory.' },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Nuclear weapons possession and triad capability.' },
   { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Major or minor war in past five years (UCDP methodology).' },
   { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'World Values Survey / European Values Study data.' },
@@ -40,7 +40,6 @@ export default function CountryProfile({ country, rank, onBack }) {
   const total = Number(country.Total).toFixed(1);
 
   const armySize = profile?.manpower?.active_personnel ? safeText(profile.manpower.active_personnel) : null;
-  const hasNuclear = profile?.nuclear?.has_nuclear ? safeText(profile.nuclear.has_nuclear.value ?? profile.nuclear.has_nuclear) : null;
   const nuclearYesNo = profile?.nuclear?.has_nuclear?.value === true ? 'Yes' : profile?.nuclear?.has_nuclear?.value === false ? 'No' : null;
 
   return (
