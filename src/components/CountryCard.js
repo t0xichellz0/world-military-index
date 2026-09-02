@@ -2,7 +2,8 @@ import React from 'react';
 
 const CATEGORIES = [
   { key: 'Personnel', label: 'Military Personnel', max: 20 },
-  { key: 'Arms', label: 'Conventional Arms', max: 20 },
+  { key: 'Arms', label: 'Conventional Arms', max: 12 },
+  { key: 'Drones', label: 'Drone Capability', max: 8 },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15 },
   { key: 'Combat', label: 'Combat Experience', max: 15 },
   { key: 'Willingness', label: 'Willingness to Fight', max: 15 },

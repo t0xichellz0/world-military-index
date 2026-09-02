@@ -35,6 +35,7 @@ export function useSheetData() {
             Combat: parseNum(row.Combat),
             Willingness: parseNum(row.Willingness),
             Budget: parseNum(row.Budget),
+            Drones: parseNum(row.Drones),
             Total: parseNum(row.Total),
           }))
           .sort((a, b) => b.Total - a.Total);

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Rankings from './pages/Rankings';
 import Methodology from './pages/Methodology';
-import Drones from './pages/Drones';
 
 export default function App() {
   const [page, setPage] = useState('Rankings');
@@ -28,7 +27,6 @@ export default function App() {
       <Navbar page={page} setPage={setPage} />
       {page === 'Rankings' && <Rankings />}
       {page === 'Methodology' && <Methodology />}
-      {page === 'Drones' && <Drones />}
     </div>
   );
 }

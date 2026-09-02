@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Navbar({ page, setPage }) {
-  const tabs = ['Rankings', 'Methodology', 'Drones'];
+  const tabs = ['Rankings', 'Methodology'];
   return (
     <nav style={{
       borderBottom: '1px solid #d0d0d0',

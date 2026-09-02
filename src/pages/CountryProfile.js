@@ -4,83 +4,18 @@ import { PROFILES } from '../data/countryProfiles';
 const SCORE_CATEGORIES = [
   { key: 'Personnel', label: 'Military Personnel', max: 20, desc: 'Active members and conscription system assessment.' },
   { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Main battle tanks, fighter jets, and naval vessels.' },
+  { key: 'Drones', label: 'Drone Capability', max: 10, desc: 'Weighted from Conventional Arms — tactical, operational, and strategic drone inventory.' },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Nuclear weapons possession and triad capability.' },
   { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Major or minor war in past five years (UCDP methodology).' },
   { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'World Values Survey / European Values Study data.' },
   { key: 'Budget', label: 'Defence Budget', max: 15, desc: 'Absolute USD defence spending.' },
 ];
 
-const TABS = ['Overview', 'Manpower', 'Land', 'Airpower', 'Naval', 'Nuclear'];
-
 function safeText(val) {
   if (val && typeof val === 'object' && 'value' in val) {
     return val.value;
   }
   return val || '';
-}
-
-function StatCard({ label, field, sub }) {
-  const isFieldObj = field && typeof field === 'object' && 'value' in field;
-  const val = isFieldObj ? field.value : (field ?? '');
-  const sourceCount = isFieldObj ? (field.sources?.length || 0) : 0;
-  const verified = isFieldObj ? !!field.verified : false;
-  const displayVal = val === '' || val === null || val === undefined ? 'Pending' : val;
-
-  return (
-    <div style={{
-      background: '#fafafa',
-      border: '1px solid #ddd',
-      borderRadius: 4,
-      padding: '16px 18px',
-      overflow: 'hidden',
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, gap: 8 }}>
-        <div style={{
-          fontSize: 10.5, color: '#888',
-          letterSpacing: 1,
-          textTransform: 'uppercase'
-        }}>
-          {label}
-        </div>
-        {sourceCount > 0 && (
-          <div style={{
-            fontSize: 9, color: verified ? '#2a7a3b' : '#c07800',
-            border: `1px solid ${verified ? '#2a7a3b44' : '#c0780044'}`,
-            padding: '1px 6px', borderRadius: 3,
-            flexShrink: 0
-          }}>
-            {sourceCount} src{sourceCount > 1 ? 's' : ''}{verified ? ' ✓' : ''}
-          </div>
-        )}
-      </div>
-      <div style={{
-        fontFamily: 'Georgia, serif', fontSize: 17,
-        fontWeight: 700, color: displayVal === 'Pending' ? '#ccc' : '#1a1a1a', lineHeight: 1.3,
-        wordBreak: 'break-word'
-      }}>
-        {displayVal}
-      </div>
-      {sub && <div style={{ fontSize: 11.5, color: '#888', marginTop: 6, lineHeight: 1.5 }}>{sub}</div>}
-    </div>
-  );
-}
-
-function SectionHeader({ title }) {
-  return (
-    <div style={{
-      padding: '8px 0',
-      fontSize: 11,
-      fontWeight: 600,
-      color: '#1a1a1a',
-      marginBottom: 14,
-      marginTop: 26,
-      letterSpacing: 2,
-      textTransform: 'uppercase',
-      borderBottom: '2px solid #1a1a1a'
-    }}>
-      {title}
-    </div>
-  );
 }
 
 function FadeIn({ children }) {
@@ -101,37 +36,12 @@ function FadeIn({ children }) {
 }
 
 export default function CountryProfile({ country, rank, onBack }) {
-  const [activeTab, setActiveTab] = useState('Overview');
-  const [tabVisible, setTabVisible] = useState(true);
   const profile = PROFILES[country.Country];
   const total = Number(country.Total).toFixed(1);
 
-  function switchTab(tab) {
-    setTabVisible(false);
-    setTimeout(() => {
-      setActiveTab(tab);
-      setTabVisible(true);
-    }, 150);
-  }
-
-  const comingSoon = (
-    <div style={{
-      background: '#fafafa',
-      border: '1px solid #ddd',
-      borderRadius: 4,
-      padding: '70px 24px',
-      textAlign: 'center'
-    }}>
-      <div style={{ fontFamily: 'Georgia, serif', fontSize: 20, color: '#1a1a1a', marginBottom: 14 }}>
-        Detailed Profile Coming Soon
-      </div>
-      <div style={{ fontSize: 13.5, color: '#666', lineHeight: 1.8, maxWidth: 420, margin: '0 auto' }}>
-        Full country profiles are under development. Data is being verified
-        against primary sources including national Ministries of Defence,
-        IISS Military Balance, and SIPRI.
-      </div>
-    </div>
-  );
+  const armySize = profile?.manpower?.active_personnel ? safeText(profile.manpower.active_personnel) : null;
+  const hasNuclear = profile?.nuclear?.has_nuclear ? safeText(profile.nuclear.has_nuclear.value ?? profile.nuclear.has_nuclear) : null;
+  const nuclearYesNo = profile?.nuclear?.has_nuclear?.value === true ? 'Yes' : profile?.nuclear?.has_nuclear?.value === false ? 'No' : null;
 
   return (
     <FadeIn>
@@ -156,6 +66,7 @@ export default function CountryProfile({ country, rank, onBack }) {
           Back to Rankings
         </button>
 
+        {/* Hero */}
         <div style={{
           background: '#ffffff',
           border: '1px solid #ddd',
@@ -177,6 +88,33 @@ export default function CountryProfile({ country, rank, onBack }) {
                   {safeText(profile.overview)}
                 </div>
               )}
+
+              {/* Short summary line — army size + WMD status */}
+              {profile && (
+                <div style={{
+                  display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap'
+                }}>
+                  {armySize && (
+                    <div style={{
+                      fontSize: 12, color: '#1a1a1a',
+                      background: '#f2f2f2', border: '1px solid #ddd',
+                      padding: '5px 12px', borderRadius: 3
+                    }}>
+                      <strong>Army:</strong> {armySize}
+                    </div>
+                  )}
+                  {nuclearYesNo && (
+                    <div style={{
+                      fontSize: 12, color: '#1a1a1a',
+                      background: nuclearYesNo === 'Yes' ? '#fdecec' : '#f2f2f2',
+                      border: `1px solid ${nuclearYesNo === 'Yes' ? '#e0b0b0' : '#ddd'}`,
+                      padding: '5px 12px', borderRadius: 3
+                    }}>
+                      <strong>WMD (Nuclear):</strong> {nuclearYesNo}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: 46, fontWeight: 700, color: '#1a1a1a', lineHeight: 1 }}>
@@ -189,174 +127,62 @@ export default function CountryProfile({ country, rank, onBack }) {
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: 6, marginBottom: 22, overflowX: 'auto', paddingBottom: 4 }}>
-          {TABS.map(tab => (
-            <button key={tab} onClick={() => switchTab(tab)} style={{
-              background: activeTab === tab ? '#1a1a1a' : '#ffffff',
-              border: '1px solid',
-              borderColor: activeTab === tab ? '#1a1a1a' : '#ccc',
-              color: activeTab === tab ? '#ffffff' : '#555',
-              fontSize: 11,
-              letterSpacing: 1,
-              padding: '8px 16px',
-              borderRadius: 3,
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              whiteSpace: 'nowrap',
-              flexShrink: 0,
-              transition: 'all 0.15s ease',
-              fontWeight: activeTab === tab ? 600 : 400
-            }}>
-              {tab}
-            </button>
-          ))}
-        </div>
+        {!profile && (
+          <div style={{
+            background: '#fafafa', border: '1px solid #ddd',
+            borderRadius: 4, padding: '60px 24px', textAlign: 'center'
+          }}>
+            <div style={{ fontFamily: 'Georgia, serif', fontSize: 18, color: '#1a1a1a', marginBottom: 10 }}>
+              Detailed data coming soon
+            </div>
+            <div style={{ fontSize: 13, color: '#666', maxWidth: 400, margin: '0 auto', lineHeight: 1.7 }}>
+              Score breakdown is based on live ranking data. Full country summary is being verified against primary sources.
+            </div>
+          </div>
+        )}
 
-        <div style={{
-          opacity: tabVisible ? 1 : 0,
-          transform: tabVisible ? 'translateY(0)' : 'translateY(4px)',
-          transition: 'opacity 0.15s ease, transform 0.15s ease'
-        }}>
-
-          {!profile && comingSoon}
-
-          {profile && activeTab === 'Overview' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {SCORE_CATEGORIES.map(cat => {
-                const val = country[cat.key] || 0;
-                const pct = Math.min(Math.round((val / cat.max) * 100), 100);
-                return (
-                  <div key={cat.key} style={{
-                    background: '#ffffff',
-                    border: '1px solid #ddd',
-                    borderRadius: 4,
-                    padding: '18px 22px'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                      <div>
-                        <div style={{ fontFamily: 'Georgia, serif', fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>{cat.label}</div>
-                        <div style={{ fontSize: 12, color: '#888', marginTop: 3 }}>{cat.desc}</div>
-                      </div>
-                      <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 16 }}>
-                        <div style={{ fontSize: 22, fontWeight: 600, color: '#1a1a1a' }}>
-                          {val % 1 === 0 ? val : val.toFixed(2)}
-                        </div>
-                        <div style={{ fontSize: 9.5, color: '#999' }}>/ {cat.max}</div>
-                      </div>
-                    </div>
-                    <div style={{ height: 6, background: '#eee', borderRadius: 3, overflow: 'hidden' }}>
-                      <div style={{ width: `${pct}%`, height: '100%', background: '#555', borderRadius: 3, transition: 'width 0.6s ease' }} />
-                    </div>
+        {/* Score breakdown — this IS the profile now */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {SCORE_CATEGORIES.map(cat => {
+            const val = country[cat.key] || 0;
+            const pct = Math.min(Math.round((val / cat.max) * 100), 100);
+            return (
+              <div key={cat.key} style={{
+                background: '#ffffff',
+                border: '1px solid #ddd',
+                borderRadius: 4,
+                padding: '18px 22px'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                  <div>
+                    <div style={{ fontFamily: 'Georgia, serif', fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>{cat.label}</div>
+                    <div style={{ fontSize: 12, color: '#888', marginTop: 3 }}>{cat.desc}</div>
                   </div>
-                );
-              })}
-            </div>
-          )}
-
-          {profile && activeTab === 'Manpower' && (
-            <div>
-              <SectionHeader title="Manpower" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Population" field={profile.manpower.total_population} />
-                <StatCard label="Available Manpower" field={profile.manpower.available_manpower} />
-                <StatCard label="Active Personnel" field={profile.manpower.active_personnel} />
-                <StatCard label="Reserve Personnel" field={profile.manpower.reserve_personnel} />
-                <StatCard label="Paramilitary" field={profile.manpower.paramilitary} />
+                  <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 16 }}>
+                    <div style={{ fontSize: 22, fontWeight: 600, color: '#1a1a1a' }}>
+                      {val % 1 === 0 ? val : val.toFixed(2)}
+                    </div>
+                    <div style={{ fontSize: 9.5, color: '#999' }}>/ {cat.max}</div>
+                  </div>
+                </div>
+                <div style={{ height: 6, background: '#eee', borderRadius: 3, overflow: 'hidden' }}>
+                  <div style={{ width: `${pct}%`, height: '100%', background: '#555', borderRadius: 3, transition: 'width 0.6s ease' }} />
+                </div>
               </div>
-              <SectionHeader title="Service Branch Personnel" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Army Personnel" field={profile.manpower.army_personnel} />
-                <StatCard label="Navy Personnel" field={profile.manpower.navy_personnel} />
-                <StatCard label="Air Force Personnel" field={profile.manpower.airforce_personnel} />
-              </div>
-            </div>
-          )}
-
-          {profile && activeTab === 'Land' && (
-            <div>
-              <SectionHeader title="Land Forces" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Main Battle Tanks" field={profile.land.tanks} />
-                <StatCard label="Armored Vehicles" field={profile.land.armored_vehicles} />
-                <StatCard label="Self-Propelled Artillery" field={profile.land.self_propelled_artillery} />
-                <StatCard label="Towed Artillery" field={profile.land.towed_artillery} />
-                <StatCard label="Rocket Artillery (MLRS)" field={profile.land.rocket_artillery} />
-              </div>
-            </div>
-          )}
-
-          {profile && activeTab === 'Airpower' && (
-            <div>
-              <SectionHeader title="Air Power" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Active Aircraft" field={profile.airpower.total_aircraft} sub="All types combined" />
-                <StatCard label="Fighter Aircraft" field={profile.airpower.fighters} />
-                <StatCard label="Attack Aircraft" field={profile.airpower.attack_aircraft} />
-                <StatCard label="Transport Aircraft" field={profile.airpower.transport} />
-                <StatCard label="Trainer Aircraft" field={profile.airpower.trainers} />
-                <StatCard label="Total Helicopters" field={profile.airpower.helicopters} />
-                <StatCard label="Attack Helicopters" field={profile.airpower.attack_helicopters} />
-                <StatCard label="Aerial Tankers" field={profile.airpower.tanker_fleet} />
-              </div>
-            </div>
-          )}
-
-          {profile && activeTab === 'Naval' && (
-            <div>
-              <SectionHeader title="Naval Forces" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14 }}>
-                <StatCard label="Total Battle Force Ships" field={profile.naval.total_assets} />
-                <StatCard label="Aircraft Carriers" field={profile.naval.aircraft_carriers} sub="Largest carrier fleet in the world" />
-                <StatCard label="Helicopter Carriers" field={profile.naval.helicopter_carriers} />
-                <StatCard label="Destroyers" field={profile.naval.destroyers} />
-                <StatCard label="Submarines" field={profile.naval.submarines} sub="All nuclear-powered" />
-                <StatCard label="Frigates" field={profile.naval.frigates} />
-                <StatCard label="Corvettes" field={profile.naval.corvettes} />
-                <StatCard label="Patrol Vessels" field={profile.naval.patrol_vessels} />
-              </div>
-            </div>
-          )}
-
-          {profile && activeTab === 'Nuclear' && (
-            <div>
-              <SectionHeader title="Nuclear Capability" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14, marginBottom: 18 }}>
-                <StatCard
-                  label="Nuclear Power"
-                  field={{
-                    value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No',
-                    sources: profile.nuclear.has_nuclear?.sources,
-                    verified: profile.nuclear.has_nuclear?.verified
-                  }}
-                />
-                <StatCard
-                  label="Nuclear Triad"
-                  field={{
-                    value: profile.nuclear.has_triad?.value ? 'Yes' : 'No',
-                    sources: profile.nuclear.has_triad?.sources,
-                    verified: profile.nuclear.has_triad?.verified
-                  }}
-                />
-                <StatCard label="Estimated Warheads" field={profile.nuclear.warheads} />
-              </div>
-              <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '18px 22px', marginBottom: 10 }}>
-                <div style={{ fontSize: 10.5, color: '#888', letterSpacing: 1.5, marginBottom: 8, textTransform: 'uppercase' }}>Nuclear Note</div>
-                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{safeText(profile.nuclear.note)}</div>
-              </div>
-
-              <SectionHeader title="Defence Budget" />
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 14, marginBottom: 18 }}>
-                <StatCard label="Annual Budget (USD)" field={profile.budget.annual_usd} />
-                <StatCard label="Percentage of GDP" field={profile.budget.pct_gdp} />
-              </div>
-              <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '18px 22px', marginBottom: 18 }}>
-                <div style={{ fontSize: 10.5, color: '#888', letterSpacing: 1.5, marginBottom: 8, textTransform: 'uppercase' }}>Budget Note</div>
-                <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>{safeText(profile.budget.note)}</div>
-              </div>
-            </div>
-          )}
-
+            );
+          })}
         </div>
+
+        {profile?.nuclear?.note && (
+          <div style={{
+            background: '#fafafa', border: '1px solid #ddd', borderRadius: 4,
+            padding: '16px 20px', marginTop: 16
+          }}>
+            <div style={{ fontSize: 10.5, color: '#888', letterSpacing: 1.5, marginBottom: 6, textTransform: 'uppercase' }}>Note</div>
+            <div style={{ fontSize: 13, color: '#444', lineHeight: 1.7 }}>{safeText(profile.nuclear.note)}</div>
+          </div>
+        )}
+
       </div>
     </FadeIn>
   );
