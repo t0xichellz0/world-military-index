@@ -1,9 +1,17 @@
 import React from 'react';
 
+const COUNTRY_CODES = {
+  'United States': 'us',
+  'Russia': 'ru',
+  'China': 'cn',
+  'Israel': 'il',
+  'Ukraine': 'ua',
+  'India': 'in',
+};
+
 const CATEGORIES = [
   { key: 'Personnel', label: 'Military Personnel', max: 20 },
-  { key: 'Arms', label: 'Conventional Arms', max: 12 },
-  { key: 'Drones', label: 'Drone Capability', max: 8 },
+  { key: 'Arms', label: 'Conventional Arms', max: 20 },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15 },
   { key: 'Combat', label: 'Combat Experience', max: 15 },
   { key: 'Willingness', label: 'Willingness to Fight', max: 15 },
@@ -11,6 +19,8 @@ const CATEGORIES = [
 ];
 
 export default function CountryCard({ country, rank, onClick }) {
+  const countryCode = COUNTRY_CODES[country.Country];
+
   return (
     <div
       onClick={onClick}
@@ -53,13 +63,32 @@ export default function CountryCard({ country, rank, onClick }) {
           </div>
           <div>
             <div style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 20,
-              fontWeight: 700,
-              color: '#1a1a1a',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
               marginBottom: 3
             }}>
-              {country.Country}
+              {countryCode && (
+                <img
+                  src={`https://flagcdn.com/w40/${countryCode}.png`}
+                  alt={`${country.Country} flag`}
+                  style={{
+                    width: 28,
+                    height: 'auto',
+                    borderRadius: 2,
+                    border: '1px solid #ddd',
+                    display: 'block'
+                  }}
+                />
+              )}
+              <div style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: 20,
+                fontWeight: 700,
+                color: '#1a1a1a'
+              }}>
+                {country.Country}
+              </div>
             </div>
             <div style={{
               fontSize: 11.5,
