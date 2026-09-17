@@ -12,11 +12,11 @@ const COUNTRY_CODES = {
 
 const SCORE_CATEGORIES = [
   { key: 'Personnel', label: 'Military Personnel', max: 20, desc: 'Active members and conscription system assessment. Base score out of 17, plus 3 points if the country has conscription.' },
-  { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Main battle tanks, fighter jets, and naval vessels.' },
+  { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Main battle tanks, fighter jets, naval vessels, and drone capability — each weighted equally.' },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Nuclear weapons possession and triad capability.' },
   { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Major or minor war in past five years (Uppsala Conflict Data Program).' },
-  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'World Values Survey / European Values Study data.' },
-  { key: 'Budget', label: 'Defence Budget', max: 15, desc: 'Absolute USD defence spending.' },
+  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'European Values Study data.' },
+  { key: 'Budget', label: 'Absolute Defence Spending (USD)', max: 15, desc: 'Absolute USD defence spending.' },
 ];
 
 function safeText(val) {
@@ -39,7 +39,6 @@ function FadeIn({ children }) {
 
 function SubRow({ label, value }) {
   const val = safeText(value);
-  const srcCount = value?.sources?.length || 0;
   if (!val) return null;
   return (
     <div style={{
@@ -49,11 +48,6 @@ function SubRow({ label, value }) {
       <div style={{ fontSize: 12.5, color: '#666', flexShrink: 0, width: 150 }}>{label}</div>
       <div style={{ fontSize: 13, color: '#1a1a1a', textAlign: 'right', flex: 1 }}>
         {val}
-        {srcCount > 0 && (
-          <span style={{ fontSize: 10, color: '#999', marginLeft: 6 }}>
-            ({srcCount} source{srcCount > 1 ? 's' : ''})
-          </span>
-        )}
       </div>
     </div>
   );
@@ -93,7 +87,7 @@ export default function CountryProfile({ country, rank, onBack }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 20 }}>
             <div>
               <div style={{ fontSize: 10.5, letterSpacing: 1.5, color: '#888', marginBottom: 10, textTransform: 'uppercase' }}>
-                Rank #{rank} · World Military Index 2026
+                Rank #{rank} · World Military Index
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 {COUNTRY_CODES[country.Country] && (
@@ -136,7 +130,7 @@ export default function CountryProfile({ country, rank, onBack }) {
             const val = country[cat.key] || 0;
             const pct = Math.min(Math.round((val / cat.max) * 100), 100);
             const isOpen = expanded === cat.key;
-            const hasExpand = profile && (cat.key === 'Personnel' || cat.key === 'Arms' || cat.key === 'Nuclear' || cat.key === 'Budget');
+            const hasExpand = profile && ['Personnel', 'Arms', 'Nuclear', 'Budget', 'Combat', 'Willingness'].includes(cat.key);
 
             return (
               <div key={cat.key} style={{
@@ -168,53 +162,41 @@ export default function CountryProfile({ country, rank, onBack }) {
                 {isOpen && cat.key === 'Personnel' && profile.manpower && (
                   <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
                     <SubRow label="Total Active Personnel" value={profile.manpower.active_personnel} />
-                    <SubRow label="Army" value={profile.manpower.army_personnel} />
-                    <SubRow label="Navy" value={profile.manpower.navy_personnel} />
-                    <SubRow label="Air Force" value={profile.manpower.airforce_personnel} />
-                    <SubRow label="Reserve" value={profile.manpower.reserve_personnel} />
                     <SubRow label="Conscription" value={profile.manpower.conscription} />
                   </div>
                 )}
 
                 {isOpen && cat.key === 'Arms' && (profile.land || profile.airpower || profile.naval) && (
                   <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                    {profile.land && (
-                      <>
-                        <div style={{ fontSize: 10, color: '#888', letterSpacing: 1, textTransform: 'uppercase', marginTop: 10, marginBottom: 2 }}>Land</div>
-                        <SubRow label="Main Battle Tanks" value={profile.land.tanks} />
-                        <SubRow label="Armored Vehicles" value={profile.land.armored_vehicles} />
-                      </>
-                    )}
-                    {profile.airpower && (
-                      <>
-                        <div style={{ fontSize: 10, color: '#888', letterSpacing: 1, textTransform: 'uppercase', marginTop: 10, marginBottom: 2 }}>Air</div>
-                        <SubRow label="Total Aircraft" value={profile.airpower.total_aircraft} />
-                        <SubRow label="Fighter Aircraft" value={profile.airpower.fighters} />
-                      </>
-                    )}
-                    {profile.naval && (
-                      <>
-                        <div style={{ fontSize: 10, color: '#888', letterSpacing: 1, textTransform: 'uppercase', marginTop: 10, marginBottom: 2 }}>Naval</div>
-                        <SubRow label="Total Warships" value={profile.naval.total_assets} />
-                        <SubRow label="Aircraft Carriers" value={profile.naval.aircraft_carriers} />
-                        <SubRow label="Submarines" value={profile.naval.submarines} />
-                      </>
-                    )}
+                    <SubRow label="Main Battle Tanks" value={profile.land?.tanks} />
+                    <SubRow label="Fighter Jets" value={profile.airpower?.fighters} />
+                    <SubRow label="Vessels" value={profile.naval?.total_assets} />
                   </div>
                 )}
 
                 {isOpen && cat.key === 'Nuclear' && profile.nuclear && (
                   <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                    <SubRow label="Has Nuclear Weapons" value={{ value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No', sources: profile.nuclear.has_nuclear?.sources }} />
-                    <SubRow label="Nuclear Triad" value={{ value: profile.nuclear.has_triad?.value ? 'Yes' : 'No', sources: profile.nuclear.has_triad?.sources }} />
-                    <SubRow label="Estimated Warheads" value={profile.nuclear.warheads} />
+                    <SubRow label="Has Nuclear Weapons" value={{ value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No' }} />
+                    <SubRow label="Nuclear Triad" value={{ value: profile.nuclear.has_triad?.value ? 'Yes' : 'No' }} />
+                  </div>
+                )}
+
+                {isOpen && cat.key === 'Combat' && profile.combat && (
+                  <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                    <SubRow label="Major War(s)" value={profile.combat.major_wars} />
+                    <SubRow label="Minor War(s)" value={profile.combat.minor_wars} />
+                  </div>
+                )}
+
+                {isOpen && cat.key === 'Willingness' && profile.willingness?.note && (
+                  <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                    <SubRow label="Willing to Fight" value={profile.willingness.note} />
                   </div>
                 )}
 
                 {isOpen && cat.key === 'Budget' && profile.budget && (
                   <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                    <SubRow label="Annual Defence Budget" value={profile.budget.annual_usd} />
-                    <SubRow label="% of GDP" value={profile.budget.pct_gdp} />
+                    <SubRow label="Amount" value={profile.budget.annual_usd} />
                   </div>
                 )}
               </div>

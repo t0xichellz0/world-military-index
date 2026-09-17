@@ -26,33 +26,6 @@ export default function Rankings() {
 
   return (
     <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto' }}>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 24,
-        flexWrap: 'wrap',
-        gap: 10
-      }}>
-        <div style={{
-          fontFamily: 'Georgia, serif',
-          fontSize: 18,
-          fontStyle: 'italic',
-          color: '#444'
-        }}>
-          Top Military Powers — Current Assessment
-        </div>
-        <div style={{
-          fontSize: 11,
-          color: '#1a1a1a',
-          border: '1px solid #d0d0d0',
-          padding: '5px 14px',
-          borderRadius: 3,
-          letterSpacing: 1
-        }}>
-          2026
-        </div>
-      </div>
       {data.map((country, i) => (
         <CountryCard
           key={country.Country}
