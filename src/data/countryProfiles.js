@@ -154,4 +154,154 @@ export const PROFILES = {
     },
   },
 
+   'United Kingdom': {
+    overview: 'The United Kingdom maintains a nuclear-armed, NATO-integrated military centred on its Continuous At-Sea Deterrent, with defence spending rising toward 2.5% of GDP.',
+    manpower: {
+      active_personnel: field('144,400 (+70,650 reserve) (UK MoD, 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('285 Challenger 2 (UK MoD, 2026)') },
+    airpower: { fighters: field('158 (111 Typhoon + 47 F-35B) (UK MoD/RAF, 2026)') },
+    naval: { total_assets: field('73 (UK MoD, 2026)') },
+    nuclear: {
+      has_nuclear: field(true),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('~$74 billion (2025–26) (UK MoD).'),
+    },
+    willingness: {
+      note: field('42% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026).'),
+    },
+  },
+
+  'France': {
+    overview: 'France fields an independent nuclear triad and the most complete sovereign defence industrial base in Europe, spanning nuclear propulsion, carriers, and strategic missiles.',
+    manpower: {
+      active_personnel: field('264,000 (French MoD, 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('215 Leclerc (French MoD, 2026)') },
+    airpower: { fighters: field('264 (French MoD, 2026)') },
+    naval: { total_assets: field('166 (French MoD, 2026)') },
+    nuclear: {
+      has_nuclear: field(true),
+      has_triad: field(true),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('€61.8 billion / ~$71.7 billion (2025) (French MoD).'),
+    },
+    willingness: {
+      note: field('42% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026).'),
+    },
+  },
+
+  'Germany': {
+    overview: 'Germany fields the heaviest armored force in Western Europe and the region\'s largest defence budget, but does not possess nuclear weapons of its own.',
+    manpower: {
+      active_personnel: field('~181,000 (German MoD, 2026)'),
+      conscription: field('No — voluntary service model with mandatory suitability questionnaire since Jan 2026'),
+    },
+    land: { tanks: field('296 Leopard 2 (German MoD, 2026)') },
+    airpower: { fighters: field('224 (German MoD, 2026)') },
+    naval: { total_assets: field('72 (German MoD, 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('~$112.5 billion (2025) (German MoD).'),
+    },
+    willingness: {
+      note: field('27% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026).'),
+    },
+  },
+
+    'Japan': {
+    overview: 'Japan operates a constitutionally constrained but highly modern self-defence force, non-nuclear, with rising defence spending amid regional tensions with China and North Korea.',
+    manpower: {
+      active_personnel: field('247,150 (Japan MoD, 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('1,004 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('217 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('155 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$50.2 billion (2025) (Japan MoD).'),
+    },
+    willingness: {
+      note: field('11% (WIN/Gallup International).'),
+    },
+  },
+
+  'South Korea': {
+    overview: 'South Korea fields one of Asia\'s most capable and heavily armed militaries, shaped by the unresolved armistice with North Korea and a rapidly growing indigenous defence industry.',
+    manpower: {
+      active_personnel: field('555,000 (WorldPowerStats 2026)'),
+      conscription: field('Yes — mandatory service, ~18-21 months'),
+    },
+    land: { tanks: field('2,501 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('406 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('200 (WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$46.4 billion (2025) (WorldPowerStats).'),
+    },
+    willingness: {
+      note: field('42% (Gallup, 2025).'),
+    },
+  },
+
+  'Turkiye': {
+    overview: 'Turkiye fields NATO\'s second-largest standing army and a rapidly expanding domestic defence industry, including the world\'s first purpose-built drone carrier.',
+    manpower: {
+      active_personnel: field('512,000 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — mandatory service, ~6-12 months'),
+    },
+    land: { tanks: field('2,238 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('299 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('191 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None formally classified as inter-state major war (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('Sustained conflict with PKK (ongoing since 1984) and cross-border operations in northern Syria/Iraq (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$25.0 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('88% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026) — highest of all NATO member states surveyed.'),
+    },
+  },
+
 };

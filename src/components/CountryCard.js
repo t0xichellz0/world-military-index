@@ -7,6 +7,12 @@ const COUNTRY_CODES = {
   'Israel': 'il',
   'Ukraine': 'ua',
   'India': 'in',
+  'United Kingdom': 'gb',
+  'France': 'fr',
+  'Germany': 'de',
+  'Japan': 'jp',
+  'South Korea': 'kr',
+  'Turkiye': 'tr',
 };
 
 const CATEGORIES = [
@@ -20,6 +26,8 @@ const CATEGORIES = [
 
 export default function CountryCard({ country, rank, onClick }) {
   const countryCode = COUNTRY_CODES[country.Country];
+
+  console.log('CARD - COUNTRY:', JSON.stringify(country.Country), 'CODE:', COUNTRY_CODES[country.Country]);
 
   return (
     <div
