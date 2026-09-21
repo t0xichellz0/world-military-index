@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Rankings from './pages/Rankings';
@@ -15,13 +16,15 @@ export default function App() {
         padding: '24px 32px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        overflow: 'hidden'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20, minWidth: 0 }}>
           <img
             src="/wmi-logo.png"
             alt="World Military Index"
-            style={{ height: 130, width: 'auto' }}
+            style={{ height: 130, width: 'auto', maxWidth: '100%' }}
           />
           <div style={{ fontFamily: 'Georgia, serif', fontSize: 32, fontWeight: 700, color: '#1a1a1a' }}>
             World Military Index
@@ -30,6 +33,7 @@ export default function App() {
         <img
           src="/cgs-logo.jpg"
           alt="Center for Geopolitical Studies Riga"
+          className="cgs-header-logo"
           style={{ height: 60, width: 'auto' }}
         />
       </div>
