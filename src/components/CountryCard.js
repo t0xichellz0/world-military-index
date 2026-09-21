@@ -13,6 +13,15 @@ const COUNTRY_CODES = {
   'Japan': 'jp',
   'South Korea': 'kr',
   'Turkiye': 'tr',
+  'Pakistan': 'pk',
+  'North Korea': 'kp',
+  'Italy': 'it',
+  'Brazil': 'br',
+  'Indonesia': 'id',
+  'Iran': 'ir',
+  'Australia': 'au',
+  'Spain': 'es',
+  'Egypt': 'eg',
 };
 
 const CATEGORIES = [

@@ -19,7 +19,7 @@ export default function App() {
         <img
           src="/wmi-logo.png"
           alt="World Military Index"
-          style={{ height: 72, width: 'auto' }}
+          style={{ height: 130, width: 'auto' }}
         />
         <div style={{ fontFamily: 'Georgia, serif', fontSize: 32, fontWeight: 700, color: '#1a1a1a' }}>
           World Military Index

@@ -14,15 +14,24 @@ const COUNTRY_CODES = {
   'Japan': 'jp',
   'South Korea': 'kr',
   'Turkiye': 'tr',
+  'Pakistan': 'pk',
+  'North Korea': 'kp',
+  'Italy': 'it',
+  'Brazil': 'br',
+  'Indonesia': 'id',
+  'Iran': 'ir',
+  'Australia': 'au',
+  'Spain': 'es',
+  'Egypt': 'eg',
 };
 
 const SCORE_CATEGORIES = [
-  { key: 'Personnel', label: 'Military Personnel', max: 20, desc: 'Active members and conscription system assessment. Base score out of 17, plus 3 points if the country has conscription.' },
-  { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Main battle tanks, fighter jets, naval vessels, and drone capability — each weighted equally.' },
-  { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Nuclear weapons possession and triad capability.' },
-  { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Major or minor war in past five years (Uppsala Conflict Data Program).' },
-  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'European Values Study data.' },
-  { key: 'Budget', label: 'Absolute Defence Spending (USD)', max: 15, desc: 'Absolute USD defence spending.' },
+  { key: 'Personnel', label: 'Military Personnel', max: 20, desc: 'Measure based on active military personnel and conscription.' },
+  { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Measure based on the number of main battle tanks, fighter jets, military vessels, and drone power.' },
+  { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Measure based on the existence of a nuclear arsenal and nuclear delivery systems.' },
+  { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Measure based on combat experience during the past five years.' },
+  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'Measure based on the perceived societal willingness to fight for the country.' },
+  { key: 'Budget', label: 'Absolute Defence Spending', max: 15, desc: 'Measure based on national defence spending.' },
 ];
 
 function safeText(val) {
@@ -61,8 +70,6 @@ function SubRow({ label, value }) {
 
 export default function CountryProfile({ country, rank, onBack }) {
   const profile = PROFILES[country.Country];
-  console.log('LOOKING FOR:', JSON.stringify(country.Country));
-  console.log('AVAILABLE KEYS:', Object.keys(PROFILES));
   const total = Number(country.Total).toFixed(1);
   const [expanded, setExpanded] = useState(null);
   const flagCode = COUNTRY_CODES[country.Country];
@@ -135,84 +142,93 @@ export default function CountryProfile({ country, rank, onBack }) {
         )}
 
         {profile && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {SCORE_CATEGORIES.map(cat => {
-              const val = country[cat.key] || 0;
-              const pct = Math.min(Math.round((val / cat.max) * 100), 100);
-              const isOpen = expanded === cat.key;
-              const hasExpand = ['Personnel', 'Arms', 'Nuclear', 'Budget', 'Combat', 'Willingness'].includes(cat.key);
+          <>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {SCORE_CATEGORIES.map(cat => {
+                const val = country[cat.key] || 0;
+                const pct = Math.min(Math.round((val / cat.max) * 100), 100);
+                const isOpen = expanded === cat.key;
+                const hasExpand = ['Personnel', 'Arms', 'Nuclear', 'Budget', 'Combat', 'Willingness'].includes(cat.key);
 
-              return (
-                <div key={cat.key} style={{
-                  background: '#ffffff', border: '1px solid #ddd', borderRadius: 4, overflow: 'hidden'
-                }}>
-                  <div
-                    onClick={() => hasExpand && toggle(cat.key)}
-                    style={{ padding: '18px 22px', cursor: hasExpand ? 'pointer' : 'default' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                      <div>
-                        <div style={{ fontFamily: 'Georgia, serif', fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>
-                          {cat.label} {hasExpand && <span style={{ fontSize: 11, color: '#999', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>{isOpen ? '▲' : '▼ expand'}</span>}
+                return (
+                  <div key={cat.key} style={{
+                    background: '#ffffff', border: '1px solid #ddd', borderRadius: 4, overflow: 'hidden'
+                  }}>
+                    <div
+                      onClick={() => hasExpand && toggle(cat.key)}
+                      style={{ padding: '18px 22px', cursor: hasExpand ? 'pointer' : 'default' }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                        <div>
+                          <div style={{ fontFamily: 'Georgia, serif', fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>
+                            {cat.label} {hasExpand && <span style={{ fontSize: 11, color: '#999', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>{isOpen ? '▲' : '▼ expand'}</span>}
+                          </div>
+                          <div style={{ fontSize: 12, color: '#888', marginTop: 3 }}>{cat.desc}</div>
                         </div>
-                        <div style={{ fontSize: 12, color: '#888', marginTop: 3 }}>{cat.desc}</div>
+                        <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 16 }}>
+                          <div style={{ fontSize: 22, fontWeight: 600, color: '#1a1a1a' }}>
+                            {val % 1 === 0 ? val : val.toFixed(2)}
+                          </div>
+                          <div style={{ fontSize: 9.5, color: '#999' }}>/ {cat.max}</div>
+                        </div>
                       </div>
-                      <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 16 }}>
-                        <div style={{ fontSize: 22, fontWeight: 600, color: '#1a1a1a' }}>
-                          {val % 1 === 0 ? val : val.toFixed(2)}
-                        </div>
-                        <div style={{ fontSize: 9.5, color: '#999' }}>/ {cat.max}</div>
+                      <div style={{ height: 6, background: '#eee', borderRadius: 3, overflow: 'hidden' }}>
+                        <div style={{ width: `${pct}%`, height: '100%', background: '#555', borderRadius: 3, transition: 'width 0.6s ease' }} />
                       </div>
                     </div>
-                    <div style={{ height: 6, background: '#eee', borderRadius: 3, overflow: 'hidden' }}>
-                      <div style={{ width: `${pct}%`, height: '100%', background: '#555', borderRadius: 3, transition: 'width 0.6s ease' }} />
-                    </div>
+
+                    {isOpen && cat.key === 'Personnel' && profile.manpower && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Total Active Personnel" value={profile.manpower.active_personnel} />
+                        <SubRow label="Conscription" value={profile.manpower.conscription} />
+                      </div>
+                    )}
+
+                    {isOpen && cat.key === 'Arms' && (profile.land || profile.airpower || profile.naval) && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Main Battle Tanks" value={profile.land?.tanks} />
+                        <SubRow label="Fighter Jets" value={profile.airpower?.fighters} />
+                        <SubRow label="Vessels" value={profile.naval?.total_assets} />
+                      </div>
+                    )}
+
+                    {isOpen && cat.key === 'Nuclear' && profile.nuclear && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Has Nuclear Weapons" value={{ value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No' }} />
+                        <SubRow label="Nuclear Triad" value={{ value: profile.nuclear.has_triad?.value ? 'Yes' : 'No' }} />
+                      </div>
+                    )}
+
+                    {isOpen && cat.key === 'Combat' && profile.combat && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Major War(s)" value={profile.combat.major_wars} />
+                        <SubRow label="Minor War(s)" value={profile.combat.minor_wars} />
+                      </div>
+                    )}
+
+                    {isOpen && cat.key === 'Willingness' && profile.willingness?.note && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Willing to Fight" value={profile.willingness.note} />
+                      </div>
+                    )}
+
+                    {isOpen && cat.key === 'Budget' && profile.budget && (
+                      <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
+                        <SubRow label="Amount" value={profile.budget.annual_usd} />
+                      </div>
+                    )}
                   </div>
+                );
+              })}
+            </div>
 
-                  {isOpen && cat.key === 'Personnel' && profile.manpower && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Total Active Personnel" value={profile.manpower.active_personnel} />
-                      <SubRow label="Conscription" value={profile.manpower.conscription} />
-                    </div>
-                  )}
-
-                  {isOpen && cat.key === 'Arms' && (profile.land || profile.airpower || profile.naval) && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Main Battle Tanks" value={profile.land?.tanks} />
-                      <SubRow label="Fighter Jets" value={profile.airpower?.fighters} />
-                      <SubRow label="Vessels" value={profile.naval?.total_assets} />
-                    </div>
-                  )}
-
-                  {isOpen && cat.key === 'Nuclear' && profile.nuclear && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Has Nuclear Weapons" value={{ value: profile.nuclear.has_nuclear?.value ? 'Yes' : 'No' }} />
-                      <SubRow label="Nuclear Triad" value={{ value: profile.nuclear.has_triad?.value ? 'Yes' : 'No' }} />
-                    </div>
-                  )}
-
-                  {isOpen && cat.key === 'Combat' && profile.combat && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Major War(s)" value={profile.combat.major_wars} />
-                      <SubRow label="Minor War(s)" value={profile.combat.minor_wars} />
-                    </div>
-                  )}
-
-                  {isOpen && cat.key === 'Willingness' && profile.willingness?.note && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Willing to Fight" value={profile.willingness.note} />
-                    </div>
-                  )}
-
-                  {isOpen && cat.key === 'Budget' && profile.budget && (
-                    <div style={{ padding: '4px 22px 18px', borderTop: '1px solid #eee', background: '#fafafa' }}>
-                      <SubRow label="Amount" value={profile.budget.annual_usd} />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+            <div style={{
+              fontSize: 12, color: '#888', marginTop: 16,
+              textAlign: 'center', fontStyle: 'italic'
+            }}>
+              Please see the Methodology for further details on points construction.
+            </div>
+          </>
         )}
 
       </div>

@@ -304,4 +304,229 @@ export const PROFILES = {
     },
   },
 
+   'Pakistan': {
+    overview: 'Pakistan fields the world\'s 9th-ranked military with a confirmed nuclear arsenal and among the highest societal willingness to fight recorded globally.',
+    manpower: {
+      active_personnel: field('654,000 (GlobalMilitary.net 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('2,680 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('387 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('114 (WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(true),
+      has_triad: field(true),
+    },
+    combat: {
+      major_wars: field('None formally classified as inter-state major war in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('Sustained counter-insurgency operations and border tensions with India and Afghanistan (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$7.8 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('86% (Gallup International/Gallup Pakistan) — among the highest recorded globally.'),
+    },
+  },
+
+  'North Korea': {
+    overview: 'North Korea fields one of the world\'s largest standing militaries by personnel and a confirmed nuclear arsenal, though its economic and technological base severely limits modern equipment quality.',
+    manpower: {
+      active_personnel: field('1,320,000 (MilitaryCompare 2026)'),
+      conscription: field('Yes — mandatory service, several years'),
+    },
+    land: { tanks: field('5,845 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('458 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('391-505 (WorldPowerStats/GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(true),
+      has_triad: field(true),
+    },
+    combat: {
+      major_wars: field('None formally classified in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None formally classified in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('Estimate only — North Korea does not publish official defence spending figures.'),
+    },
+    willingness: {
+      note: field(''),
+    },
+  },
+
+  'Italy': {
+    overview: 'Italy fields a balanced NATO-integrated military with two aircraft carriers and deep involvement in Mediterranean and European defence programs, though it hosts rather than owns nuclear weapons.',
+    manpower: {
+      active_personnel: field('165,500 (Italian MoD, Wikipedia 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('200 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('94 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('184 (WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$48.1 billion (2025) (SIPRI, confirmed 27 April 2026).'),
+    },
+    willingness: {
+      note: field('20% (WIN/Gallup International).'),
+    },
+  },
+
+  'Brazil': {
+    overview: 'Brazil fields Latin America\'s largest military, with a growing indigenous defence industry centred on the ongoing PROSUB nuclear submarine program.',
+    manpower: {
+      active_personnel: field('376,000 (Visual Capitalist/GlobalMilitary.net 2026)'),
+      conscription: field('Yes — nominal conscription, largely voluntary in practice'),
+    },
+    land: { tanks: field('294 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('65 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('68 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$20.9 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('48% (World of Statistics survey compilation).'),
+    },
+  },
+
+  'Indonesia': {
+    overview: 'Indonesia fields Southeast Asia\'s largest navy by vessel count and maintains a non-aligned defence posture centred on regional maritime security.',
+    manpower: {
+      active_personnel: field('404,500 (GlobalMilitary.net 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('331 (GlobalFirepower/GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('52 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('326-345 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$11.0-11.2 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('70% (World of Statistics survey compilation).'),
+    },
+  },
+
+  'Iran': {
+    overview: 'Iran fought a direct major war against Israel and the United States in 2026, and maintains the largest conventional ground force in the Middle East despite lacking nuclear weapons.',
+    manpower: {
+      active_personnel: field('610,000 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — mandatory service, ~18-24 months'),
+    },
+    land: { tanks: field('1,713 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('286-295 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('97-112 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('2026 Iran war — direct conflict with Israel and the United States, Feb–May 2026 (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('Ongoing regional proxy engagements via allied militias (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$7.9 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('74% (Gallup International survey).'),
+    },
+  },
+
+  'Australia': {
+    overview: 'Australia maintains a modest but highly capable professional military, anchored by the AUKUS nuclear submarine partnership and deep interoperability with US forces.',
+    manpower: {
+      active_personnel: field('~59,000 (GlobalMilitary.net 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('75 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('108 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('41 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None formally classified as major war (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('Support role in the 2026 Iran war — RAAF and Army personnel deployed, AUKUS submarine crew involved in the sinking of IRIS Dena (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$33.8 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('29% (World of Statistics survey compilation).'),
+    },
+  },
+
+  'Spain': {
+    overview: 'Spain fields a NATO-integrated force built around amphibious and carrier aviation capability, with deep involvement in European frigate and submarine programs.',
+    manpower: {
+      active_personnel: field('120,350 (GlobalMilitary.net 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('317-327 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    airpower: { fighters: field('178 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('87 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$35 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('21% (WIN/Gallup International, 2015 survey).'),
+    },
+  },
+
+  'Egypt': {
+    overview: 'Egypt fields the largest navy and one of the largest air forces in the Middle East and North Africa, anchored by control of the strategic Suez Canal corridor.',
+    manpower: {
+      active_personnel: field('438,500-440,000 (GlobalFirepower/GlobalMilitary.net 2026)'),
+      conscription: field('Yes — mandatory service, 1-3 years depending on education'),
+    },
+    land: { tanks: field('2,160-3,620 (GlobalMilitary.net, wide source variance 2026)') },
+    airpower: { fighters: field('237 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('318-319 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$4.4-5.19 billion (2025, wide source variance) (GlobalMilitary.net/MilitaryCompare).'),
+    },
+    willingness: {
+      note: field(''),
+    },
+  },
+
 };
