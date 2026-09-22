@@ -27,7 +27,7 @@ export default function Rankings() {
   return (
     <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto' }}>
       <div style={{
-        display: 'flex', justifyContent: 'center',
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
         marginBottom: 24, paddingBottom: 16,
         borderBottom: '1px solid #ddd'
       }}>
@@ -36,6 +36,12 @@ export default function Rankings() {
           alt="World Military Index"
           style={{ height: 170, width: 'auto' }}
         />
+        <div style={{
+          fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700,
+          color: '#1a1a1a', marginTop: 12
+        }}>
+          World Military Index
+        </div>
       </div>
       {data.map((country, i) => (
         <CountryCard

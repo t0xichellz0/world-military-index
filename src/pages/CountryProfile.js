@@ -23,6 +23,15 @@ const COUNTRY_CODES = {
   'Australia': 'au',
   'Spain': 'es',
   'Egypt': 'eg',
+  'Saudi Arabia': 'sa',
+  'Poland': 'pl',
+'Taiwan': 'tw',
+'Vietnam': 'vn',
+'Thailand': 'th',
+'Sweden': 'se',
+'Algeria': 'dz',
+'Canada': 'ca',
+'Singapore': 'sg',
 };
 
 const SCORE_CATEGORIES = [

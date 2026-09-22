@@ -22,6 +22,15 @@ const COUNTRY_CODES = {
   'Australia': 'au',
   'Spain': 'es',
   'Egypt': 'eg',
+  'Saudi Arabia': 'sa',
+  'Poland': 'pl',
+'Taiwan': 'tw',
+'Vietnam': 'vn',
+'Thailand': 'th',
+'Sweden': 'se',
+'Algeria': 'dz',
+'Canada': 'ca',
+'Singapore': 'sg',
 };
 
 const CATEGORIES = [
@@ -29,7 +38,7 @@ const CATEGORIES = [
   { key: 'Arms', label: 'Conventional Arms', max: 20 },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15 },
   { key: 'Combat', label: 'Combat Experience', max: 15 },
-  { key: 'Willingness', label: 'Willingness to Fight', max: 15 },
+  { key: 'Willingness', label: 'Willingness to Fight', max: 10 },
   { key: 'Budget', label: 'Defence Budget', max: 15 },
 ];
 

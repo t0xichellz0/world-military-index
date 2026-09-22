@@ -350,7 +350,7 @@ export const PROFILES = {
       annual_usd: field('Estimate only — North Korea does not publish official defence spending figures.'),
     },
     willingness: {
-      note: field(''),
+      note: field('50% (placeholder — authoritarian-state default per Center for Geopolitical Studies Riga methodology; no independent survey data exists for North Korea).'),
     },
   },
 
@@ -526,6 +526,231 @@ export const PROFILES = {
     },
     willingness: {
       note: field(''),
+    },
+  },
+
+    'Saudi Arabia': {
+    overview: 'Saudi Arabia fields the Gulf region\'s most heavily funded military and recorded the highest societal willingness to fight of any country in the current dataset.',
+    manpower: {
+      active_personnel: field('279,000 (Wikipedia/Saudi MoD 2025)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('1,062 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('384 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('55 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$75.0 billion (2025) (WorldPowerStats).'),
+    },
+    willingness: {
+      note: field('94% (Gallup International) — highest recorded in current dataset.'),
+    },
+  },
+
+    'Poland': {
+    overview: 'Poland fields NATO\'s third-largest active military and the highest defence spending as a share of GDP among all NATO members, in the midst of a major rearmament program.',
+    manpower: {
+      active_personnel: field('~220,000 (The Defense Post, Aug 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('827 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('94 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('44 (WorldPowerStats/GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$55.0 billion (2025) (Wikipedia/Polish MoD).'),
+    },
+    willingness: {
+      note: field('47% (WIN/Gallup International, 2015 survey).'),
+    },
+  },
+
+  'Taiwan': {
+    overview: 'Taiwan maintains a defence posture increasingly focused on asymmetric warfare — distributed lethality, mobile coastal-defence missiles, and sea-mining — in the face of a potential Chinese invasion.',
+    manpower: {
+      active_personnel: field('169,000 (WorldPowerStats/MilitarySpend 2026)'),
+      conscription: field('Yes — mandatory service, extended to 1 year in 2024'),
+    },
+    land: { tanks: field('888 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('319 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('97-102 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$18.2 billion (2025, SIPRI-confirmed, +14% real) (MilitarySpend.org).'),
+    },
+    willingness: {
+      note: field('73% (Institute for National Defense and Security Research, 2025).'),
+    },
+  },
+
+  'Vietnam': {
+    overview: 'Vietnam fields a large, tank-heavy conventional force under its "Four Nos" non-alignment defence policy, with among the highest recorded societal willingness to fight globally.',
+    manpower: {
+      active_personnel: field('450,000 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — mandatory service, 18-24 months'),
+    },
+    land: { tanks: field('1,374-1,545 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    airpower: { fighters: field('63-71 (WorldPowerStats/GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('109-155 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$7.9-10.5 billion (2025, wide source variance) (GlobalMilitary.net/WorldPowerStats).'),
+    },
+    willingness: {
+      note: field('89% (WIN/Gallup International, 2015 survey) — among the highest recorded globally.'),
+    },
+  },
+
+    'Thailand': {
+    overview: 'Thailand fields Southeast Asia\'s largest navy by vessel count, including a rare aircraft carrier, anchoring a "major non-NATO ally" defence relationship with the United States.',
+    manpower: {
+      active_personnel: field('360,850 (WorldPowerStats 2026)'),
+      conscription: field('Yes — conscription in effect'),
+    },
+    land: { tanks: field('737 (WorldPowerStats 2026)') },
+    airpower: { fighters: field('84 (WorldPowerStats 2026)') },
+    naval: { total_assets: field('307 (WorldPowerStats 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$5.8 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('50% (placeholder — semi-authoritarian/hybrid regime default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
+    },
+  },
+
+  'Sweden': {
+    overview: 'Sweden maintains a small, technologically advanced professional military built around domestic Gripen fighters and Baltic Sea submarine denial capability, since joining NATO in 2024.',
+    manpower: {
+      active_personnel: field('29,750 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — selective conscription reinstated'),
+    },
+    land: { tanks: field('110-120 (GlobalMilitary.net/WorldPowerStats 2026)') },
+    airpower: { fighters: field('94-96 (WorldPowerStats/GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('232 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$15.0 billion (2025) (MilitaryDex).'),
+    },
+    willingness: {
+      note: field('66% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026) — among highest in NATO.'),
+    },
+  },
+
+  'Algeria': {
+    overview: 'Algeria fields the Maghreb region\'s largest defence budget and military, built primarily around Russian-supplied equipment, amid an ongoing regional rivalry with Morocco.',
+    manpower: {
+      active_personnel: field('130,000 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — mandatory service'),
+    },
+    land: { tanks: field('1,485 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('156 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('101-104 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$21.5-22 billion (2025) (GlobalMilitary.net) — largest in the Maghreb.'),
+    },
+    willingness: {
+      note: field('50% (placeholder — authoritarian-state default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
+    },
+  },
+
+  'Canada': {
+    overview: 'Canada fields a modest professional military deeply integrated with US and NATO command structures, with defence spending well below the NATO 2% GDP target.',
+    manpower: {
+      active_personnel: field('~68,000 (GlobalMilitary.net 2026)'),
+      conscription: field('No — all-volunteer force'),
+    },
+    land: { tanks: field('74 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('92 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('66 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$44.9 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('34% (Gallup International, End of Year 2023 Survey).'),
+    },
+  },
+
+  'Singapore': {
+    overview: 'Singapore maintains one of the highest per-capita defence budgets in the world, sustained through universal National Service and a substantial reserve force.',
+    manpower: {
+      active_personnel: field('51,000 (GlobalMilitary.net 2026)'),
+      conscription: field('Yes — National Service, mandatory'),
+    },
+    land: { tanks: field('170 (GlobalMilitary.net 2026)') },
+    airpower: { fighters: field('100 (GlobalMilitary.net 2026)') },
+    naval: { total_assets: field('49-55 (GlobalMilitary.net 2026)') },
+    nuclear: {
+      has_nuclear: field(false),
+      has_triad: field(false),
+    },
+    combat: {
+      major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
+    },
+    budget: {
+      annual_usd: field('$16.0-16.4 billion (2025) (GlobalMilitary.net).'),
+    },
+    willingness: {
+      note: field('50% (placeholder — dominant-party/electoral-authoritarian default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
     },
   },
 
