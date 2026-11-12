@@ -1,4 +1,5 @@
 import React from 'react';
+import PageLogo from '../components/PageLogo';
 
 const CATEGORIES = [
   { title: 'Military Personnel', weight: '20%', desc: 'The starting point is the number of active military personnel (this excludes voluntary organizations and reserve forces). Countries with the numerically largest armed forces are further analyzed and ranked. Assessment is scored out of 17 points based on active personnel count relative to the highest-ranked country, plus 3 points if the country has a conscription system — conscription indicates greater reserve mobilization capability.' },
@@ -12,6 +13,8 @@ const CATEGORIES = [
 export default function Methodology() {
   return (
     <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>
+
+      <PageLogo />
 
       <div style={{
         background: '#fafafa', border: '1px solid #ddd',

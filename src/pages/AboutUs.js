@@ -1,14 +1,17 @@
 import React from 'react';
+import PageLogo from '../components/PageLogo';
 
 export default function AboutUs() {
   return (
     <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>
 
+      <PageLogo />
+
       <div style={{ textAlign: 'center', marginBottom: 32 }}>
         <img
           src="/cgs-logo.jpg"
           alt="Center for Geopolitical Studies Riga"
-          style={{ height: 140, width: 'auto' }}
+          style={{ height: 140, width: 'auto', maxWidth: '100%' }}
         />
       </div>
 
@@ -16,10 +19,6 @@ export default function AboutUs() {
         background: '#ffffff', border: '1px solid #ddd',
         borderRadius: 4, padding: '32px'
       }}>
-        <div style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: '#1a1a1a', marginBottom: 18 }}>
-          Center for Geopolitical Studies Riga
-        </div>
-
         <div style={{ fontSize: 14, color: '#333', lineHeight: 1.9, marginBottom: 18 }}>
           The Center for Geopolitical Studies Riga is an independent research think-tank based in Latvia. It focuses on security dilemmas and geopolitical rivalries in the Baltic Sea region and beyond.
         </div>

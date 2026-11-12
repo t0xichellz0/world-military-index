@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSheetData } from '../data/useSheetData';
 import CountryCard from '../components/CountryCard';
 import CountryProfile from './CountryProfile';
+import PageLogo from '../components/PageLogo';
 
 export default function Rankings() {
   const { data, loading } = useSheetData();
@@ -26,23 +27,7 @@ export default function Rankings() {
 
   return (
     <div style={{ padding: '32px 24px', maxWidth: 920, margin: '0 auto' }}>
-      <div style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        marginBottom: 24, paddingBottom: 16,
-        borderBottom: '1px solid #ddd'
-      }}>
-        <img
-          src="/wmi-logo.png"
-          alt="World Military Index"
-          style={{ height: 170, width: 'auto' }}
-        />
-        <div style={{
-          fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700,
-          color: '#1a1a1a', marginTop: 12
-        }}>
-          World Military Index
-        </div>
-      </div>
+      <PageLogo />
       {data.map((country, i) => (
         <CountryCard
           key={country.Country}

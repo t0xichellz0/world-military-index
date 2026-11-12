@@ -45,7 +45,6 @@ const CATEGORIES = [
 export default function CountryCard({ country, rank, onClick }) {
   const countryCode = COUNTRY_CODES[country.Country];
 
-  console.log('CARD - COUNTRY:', JSON.stringify(country.Country), 'CODE:', COUNTRY_CODES[country.Country]);
 
   return (
     <div

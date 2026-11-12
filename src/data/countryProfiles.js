@@ -344,7 +344,7 @@ export const PROFILES = {
     },
     combat: {
       major_wars: field('None formally classified in past five years (Uppsala Conflict Data Program 2026).'),
-      minor_wars: field('None formally classified in past five years (Uppsala Conflict Data Program 2026).'),
+      minor_wars: field('Troop deployment in support of Russia\'s war against Ukraine (since October 2024; combat in Russia\'s Kursk Oblast, confirmed by Russia and North Korea in April 2025).'),
     },
     budget: {
       annual_usd: field('Estimate only — North Korea does not publish official defence spending figures.'),
@@ -525,7 +525,7 @@ export const PROFILES = {
       annual_usd: field('$4.4-5.19 billion (2025, wide source variance) (GlobalMilitary.net/MilitaryCompare).'),
     },
     willingness: {
-      note: field(''),
+      note: field('83.9% (World Values Survey, Wave 7, 2018).'),
     },
   },
 
