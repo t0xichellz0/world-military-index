@@ -10,7 +10,7 @@ export default function App() {
   const [page, setPage] = useState('Rankings');
 
   return (
-    <div style={{ background: '#ffffff', minHeight: '100vh', color: '#1a1a1a', fontFamily: 'Georgia, serif', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh', color: '#1a1a1a', fontFamily: "'Helvetica Neue', Arial, sans-serif", display: 'flex', flexDirection: 'column' }}>
       <Navbar page={page} setPage={setPage} />
       <div style={{ flex: 1 }}>
         {page === 'Rankings' && <Rankings />}

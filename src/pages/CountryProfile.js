@@ -39,7 +39,7 @@ const SCORE_CATEGORIES = [
   { key: 'Arms', label: 'Conventional Arms', max: 20, desc: 'Measure based on the number of main battle tanks, fighter jets, military vessels, and drone power.' },
   { key: 'Nuclear', label: 'Nuclear Arsenal', max: 15, desc: 'Measure based on the existence of a nuclear arsenal and nuclear delivery systems.' },
   { key: 'Combat', label: 'Recent Combat Experience', max: 15, desc: 'Measure based on combat experience during the past five years.' },
-  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 15, desc: 'Measure based on the perceived societal willingness to fight for the country.' },
+  { key: 'Willingness', label: 'Societal Willingness to Fight', max: 10, desc: 'Measure based on the perceived societal willingness to fight for the country.' },
   { key: 'Budget', label: 'Absolute Defence Spending', max: 15, desc: 'Measure based on national defence spending.' },
 ];
 
@@ -122,7 +122,7 @@ export default function CountryProfile({ country, rank, onBack }) {
                     style={{ width: 48, height: 'auto', borderRadius: 3, border: '1px solid #ddd' }}
                   />
                 )}
-                <div style={{ fontFamily: 'Georgia, serif', fontSize: 30, fontWeight: 700, color: '#1a1a1a' }}>
+                <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 30, fontWeight: 700, color: '#1a1a1a' }}>
                   {country.Country}
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function CountryProfile({ country, rank, onBack }) {
               )}
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: 46, fontWeight: 700, color: '#1a1a1a', lineHeight: 1 }}>
+              <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 46, fontWeight: 700, color: '#1a1a1a', lineHeight: 1 }}>
                 {total}
               </div>
               <div style={{ fontSize: 10.5, color: '#888', marginTop: 6, letterSpacing: 1 }}>OUT OF 100</div>
@@ -143,7 +143,7 @@ export default function CountryProfile({ country, rank, onBack }) {
 
         {!profile && (
           <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '60px 24px', textAlign: 'center' }}>
-            <div style={{ fontFamily: 'Georgia, serif', fontSize: 18, color: '#1a1a1a', marginBottom: 10 }}>Detailed data coming soon</div>
+            <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 18, color: '#1a1a1a', marginBottom: 10 }}>Detailed data coming soon</div>
             <div style={{ fontSize: 13, color: '#666', maxWidth: 400, margin: '0 auto', lineHeight: 1.7 }}>
               Score breakdown is based on live ranking data. Full country summary is being verified against primary sources.
             </div>
@@ -169,7 +169,7 @@ export default function CountryProfile({ country, rank, onBack }) {
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                         <div>
-                          <div style={{ fontFamily: 'Georgia, serif', fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>
+                          <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 14.5, fontWeight: 700, color: '#1a1a1a' }}>
                             {cat.label} {hasExpand && <span style={{ fontSize: 11, color: '#999', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>{isOpen ? '▲' : '▼ expand'}</span>}
                           </div>
                           <div style={{ fontSize: 12, color: '#888', marginTop: 3 }}>{cat.desc}</div>

@@ -77,7 +77,7 @@ export default function CountryCard({ country, rank, onClick }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
           <div style={{
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Helvetica Neue', Arial, sans-serif",
             fontSize: 26,
             fontWeight: 700,
             minWidth: 36,
@@ -107,7 +107,7 @@ export default function CountryCard({ country, rank, onClick }) {
                 />
               )}
               <div style={{
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Helvetica Neue', Arial, sans-serif",
                 fontSize: 20,
                 fontWeight: 700,
                 color: '#1a1a1a'

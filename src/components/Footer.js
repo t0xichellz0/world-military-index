@@ -21,7 +21,7 @@ export default function Footer() {
           style={{ height: 60, width: 'auto', flexShrink: 0 }}
         />
         <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, fontWeight: 700, color: '#1a1a1a', marginBottom: 8 }}>
+          <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 15, fontWeight: 700, color: '#1a1a1a', marginBottom: 8 }}>
             Center for Geopolitical Studies Riga
           </div>
           <div style={{ fontSize: 12.5, color: '#666', lineHeight: 1.7, maxWidth: 600, marginBottom: 14 }}>

@@ -7,13 +7,7 @@ export default function AboutUs() {
 
       <PageLogo />
 
-      <div style={{ textAlign: 'center', marginBottom: 32 }}>
-        <img
-          src="/cgs-logo.jpg"
-          alt="Center for Geopolitical Studies Riga"
-          style={{ height: 140, width: 'auto', maxWidth: '100%' }}
-        />
-      </div>
+      <div style={{ height: 8 }} />
 
       <div style={{
         background: '#ffffff', border: '1px solid #ddd',

@@ -112,7 +112,7 @@ export default function Drones() {
         <div style={{ fontSize: 10.5, letterSpacing: 1.5, color: '#888', marginBottom: 10, textTransform: 'uppercase' }}>
           Research in Progress · 2026
         </div>
-        <div style={{ fontFamily: 'Georgia, serif', fontSize: 19, fontWeight: 700, color: '#1a1a1a', marginBottom: 10 }}>
+        <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 19, fontWeight: 700, color: '#1a1a1a', marginBottom: 10 }}>
           Drone Arsenal Classification
         </div>
         <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>
@@ -140,7 +140,7 @@ export default function Drones() {
                 {t.tier}
               </div>
               <div style={{ flex: 1, minWidth: 200 }}>
-                <div style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: '#1a1a1a', marginBottom: 3 }}>
+                <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 14, fontWeight: 700, color: '#1a1a1a', marginBottom: 3 }}>
                   {t.name}
                 </div>
                 <div style={{ fontSize: 11.5, color: '#666', marginBottom: 6 }}>
@@ -199,7 +199,7 @@ export default function Drones() {
                   justifyContent: 'space-between', gap: 12
                 }}
               >
-                <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, fontWeight: 700, color: '#1a1a1a' }}>
+                <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 16, fontWeight: 700, color: '#1a1a1a' }}>
                   {country.name}
                 </div>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end', alignItems: 'center' }}>

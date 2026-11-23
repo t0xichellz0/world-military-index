@@ -20,7 +20,7 @@ export default function Navbar({ page, setPage }) {
           padding: '14px 16px',
           cursor: 'pointer',
           fontSize: 13,
-          fontFamily: 'Georgia, serif',
+          fontFamily: "'Helvetica Neue', Arial, sans-serif",
           letterSpacing: 0.5,
           textTransform: 'uppercase',
           whiteSpace: 'nowrap',

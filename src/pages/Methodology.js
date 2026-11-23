@@ -41,7 +41,7 @@ export default function Methodology() {
             borderRadius: 4, padding: '20px 22px'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, fontWeight: 700, color: '#1a1a1a' }}>{cat.title}</div>
+              <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 15, fontWeight: 700, color: '#1a1a1a' }}>{cat.title}</div>
               <div style={{
                 fontSize: 11, color: '#1a1a1a',
                 border: '1px solid #ccc',
