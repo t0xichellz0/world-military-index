@@ -10,9 +10,9 @@ export const PROFILES = {
       active_personnel: field('1,349,597 (DMDC, March 2026)'),
       conscription: field('No — all-volunteer force'),
     },
-    land: { tanks: field('6,600 (IISS 2026)') },
-    airpower: { fighters: field('2,150 (IISS 2026)') },
-    naval: { total_assets: field('296 (IISS 2026)') },
+    land: { tanks: field('2,640 (IISS 2026)') },
+    airpower: { fighters: field('2,865 (IISS 2026)') },
+    naval: { total_assets: field('217 (IISS 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -22,7 +22,7 @@ export const PROFILES = {
       minor_wars: field('Extraction of Venezuela president (2025), War with Iran (2025) (Uppsala Conflict Data Program 2026).'),
     },
     budget: {
-      annual_usd: field('$997 billion (2025) (SIPRI).'),
+      annual_usd: field('$921 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
       note: field('37% (Center for Geopolitical Studies Riga/Riga Stradiņš University 2026).'),
@@ -32,12 +32,12 @@ export const PROFILES = {
   'Russia': {
     overview: 'Russia fields the world\'s largest nuclear warhead stockpile and a wartime-expanded military, its equipment base heavily depleted and reconstituted through the war in Ukraine.',
     manpower: {
-      active_personnel: field('1,500,000 (IISS 2026)'),
+      active_personnel: field('1,264,000 (IISS 2026)'),
       conscription: field('Yes — 12-month conscription for men aged 18–30'),
     },
-    land: { tanks: field('13,000 (IISS 2026)') },
-    airpower: { fighters: field('1,120 (IISS 2026)') },
-    naval: { total_assets: field('230 (IISS 2026)') },
+    land: { tanks: field('3,630 (IISS 2026)') },
+    airpower: { fighters: field('773 (IISS 2026)') },
+    naval: { total_assets: field('133 (IISS 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -47,7 +47,7 @@ export const PROFILES = {
       minor_wars: field('Military engagement in Syria and Africa via Wagner/Africa Corps (Uppsala Conflict Data Program 2026).'),
     },
     budget: {
-      annual_usd: field('$149 billion (2025) (SIPRI).'),
+      annual_usd: field('$161 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
       note: field('68.2% (World Values Survey).'),
@@ -60,9 +60,9 @@ export const PROFILES = {
       active_personnel: field('2,035,000 (IISS 2026)'),
       conscription: field('Nominally yes (constitutional obligation), in practice overwhelmingly volunteer force'),
     },
-    land: { tanks: field('5,800 (IISS 2026)') },
-    airpower: { fighters: field('1,350 (IISS 2026)') },
-    naval: { total_assets: field('370 (IISS 2026)') },
+    land: { tanks: field('4,700 (IISS 2026)') },
+    airpower: { fighters: field('1,912 (IISS 2026)') },
+    naval: { total_assets: field('234 (IISS 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -72,7 +72,7 @@ export const PROFILES = {
       minor_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
     },
     budget: {
-      annual_usd: field('$314 billion (2025, official) (SIPRI).'),
+      annual_usd: field('$251 billion (2025, official budget) (IISS Military Balance 2026).'),
     },
     willingness: {
       note: field('88.6% (World Values Survey).'),
@@ -82,12 +82,12 @@ export const PROFILES = {
   'Israel': {
     overview: 'Israel fields a highly advanced, combat-experienced military with an undeclared nuclear capability and one of the world\'s most battle-tested air defence systems.',
     manpower: {
-      active_personnel: field('173,000 (IISS 2026)'),
+      active_personnel: field('169,500 (IISS 2026)'),
       conscription: field('Yes — mandatory service, ~32 months men / ~24 months women'),
     },
-    land: { tanks: field('1,600 (IISS 2026)') },
-    airpower: { fighters: field('336 (IISS 2026)') },
-    naval: { total_assets: field('67 (IISS 2026)') },
+    land: { tanks: field('400 (IISS 2026)') },
+    airpower: { fighters: field('316 (IISS 2026)') },
+    naval: { total_assets: field('12 (IISS 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -97,7 +97,7 @@ export const PROFILES = {
       minor_wars: field('Conflict with Hezbollah/Lebanon (2024–2025), strikes on Iran (2025) (Uppsala Conflict Data Program 2026).'),
     },
     budget: {
-      annual_usd: field('$30 billion (pre-war baseline; wartime spending significantly higher) (SIPRI).'),
+      annual_usd: field('$39.7 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
       note: field('66% (World Values Survey).'),
@@ -107,12 +107,12 @@ export const PROFILES = {
   'Ukraine': {
     overview: 'Ukraine sustains the highest military spending burden as a share of GDP in the world, fighting a large-scale war while rapidly developing indigenous drone warfare capability.',
     manpower: {
-      active_personnel: field('800,000 (IISS 2026)'),
+      active_personnel: field('677,000 (IISS 2026)'),
       conscription: field('Yes — martial law mobilization since Feb 2022, men 18–60'),
     },
-    land: { tanks: field('1,000 (IISS 2026)') },
-    airpower: { fighters: field('85 (IISS 2026)') },
-    naval: { total_assets: field('10 (IISS 2026)') },
+    land: { tanks: field('1,323 (IISS 2026)') },
+    airpower: { fighters: field('77 (IISS 2026)') },
+    naval: { total_assets: field('0 (IISS 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -122,7 +122,7 @@ export const PROFILES = {
       minor_wars: field('Incursion into Kursk Oblast, Russia (2024–2025) (Uppsala Conflict Data Program 2026).'),
     },
     budget: {
-      annual_usd: field('$45 billion (2025) (SIPRI).'),
+      annual_usd: field('$44.4 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
       note: field('56.9% (Win/Gallup).'),
