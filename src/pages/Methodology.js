@@ -1,6 +1,20 @@
 import React from 'react';
 import PageLogo from '../components/PageLogo';
 
+const DRONE_SCALE = [
+  [10, 'Very high', 'Mass production and broad, systematic use in intense, large-scale warfare; drones are a central combat instrument.'],
+  [9, 'Exceptionally high', 'Mass domestic production, a diverse arsenal and extensive combat experience; drones are an essential part of military operations.'],
+  [8, 'High', 'Advanced domestic production of combat drones, regular use in combat and/or significant exports.'],
+  [7, 'High', 'Domestic production of combat or strike drones, proven combat effectiveness and/or considerable exports.'],
+  [6, 'Medium-high', 'Considerable drone arsenal, developed operating capability and some combat experience.'],
+  [5, 'Medium', 'Significant arsenal and limited combat experience; partial domestic production or import dependence.'],
+  [4, 'Medium-low', 'Several drone systems, domestic development programmes or significant procurement, but little combat experience.'],
+  [3, 'Limited', 'A few domestic programmes or imported military systems; little or negligible combat experience.'],
+  [2, 'Low', 'Small military drone arsenal, mainly for intelligence and surveillance; practically no combat experience.'],
+  [1, 'Very low', 'Isolated military drones or experimental capabilities without significant operational capacity.'],
+  [0, 'None', 'No identifiable military drone capability.'],
+];
+
 const CATEGORIES = [
   { title: 'Military Personnel', weight: '20%', desc: 'The starting point is the number of active military personnel (this excludes voluntary organizations and reserve forces). Countries with the numerically largest armed forces are further analyzed and ranked. Assessment is scored out of 17 points based on active personnel count relative to the highest-ranked country, plus 3 points if the country has a conscription system — conscription indicates greater reserve mobilization capability.' },
   { title: 'Conventional Arms', weight: '20%', desc: 'Includes the number of main battle tanks, fighter jets, and total military vessels. Vessels are counted as listed in the IISS Military Balance: submarines, principal surface combatants, patrol and coastal combatants, mine warfare vessels, and principal amphibious and landing ships. Landing craft, logistics and support ships, and coast guard and other paramilitary vessels are not counted. Only equipment in service is counted; equipment in store is excluded. While this approach omits many other categories of military equipment, these are selected as the most representative of the land, sea, and air domains. Note: while both MiG-21 and F-22 are fighter jets, and both T-55 and Merkava 4 are tanks — their capabilities are hardly comparable.' },
@@ -67,7 +81,27 @@ export default function Methodology() {
           Most armies are designed for specific geographical areas and prepared to fight particular adversaries. For example, North Korea's armed forces are organized to fight South Korea and would not be able to project conventional power far from their borders. Not only the number but the type of military equipment matters — while both MiG-21 and F-22 are fighter jets, and both T-55 and Merkava 4 are tanks, their capabilities are hardly comparable.
         </div>
         <div style={{ fontSize: 13, color: '#444', lineHeight: 1.85, marginTop: 10 }}>
-          Although there is no credible method or index to measure drone power, drones cannot be ignored when assessing military power. Therefore, we offer our assessment of each country's drone capacities as part of the conventional arms category. Each country receives a drone score from 0 to 10, which is divided by two and contributes up to 5 of the 20 conventional arms points (the same weight as tanks, fighter jets and vessels). The scale reflects demonstrated capability, not announced plans: 10 means mass wartime production and use of drones in combat; scores in the upper-middle range mean large, operationally proven drone forces and domestic industry; middle scores mean combat-proven or substantial fleets with limited production scale; low scores mean drones used mostly for intelligence, surveillance and reconnaissance, or programmes that are still planned. Countries with no meaningful drone force or industry score 0. These scores are our assessment and are reviewed as new evidence emerges.
+          Although there is no credible method or index to measure drone power, drones cannot be ignored when assessing military power. Therefore, we offer our assessment of each country's drone capacities as part of the conventional arms category. Each country receives a drone score from 0 to 10, which is divided by two and contributes up to 5 of the 20 conventional arms points (the same weight as tanks, fighter jets and vessels). The scale is shown below.
+        </div>
+        <div style={{ marginTop: 14, overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, color: '#444', lineHeight: 1.6 }}>
+            <thead>
+              <tr style={{ textAlign: 'left', borderBottom: '2px solid #ddd' }}>
+                <th style={{ padding: '6px 10px' }}>Points</th>
+                <th style={{ padding: '6px 10px' }}>Capability level</th>
+                <th style={{ padding: '6px 10px' }}>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {DRONE_SCALE.map(r => (
+                <tr key={r[0]} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ padding: '6px 10px', fontWeight: 700 }}>{r[0]}</td>
+                  <td style={{ padding: '6px 10px', whiteSpace: 'nowrap' }}>{r[1]}</td>
+                  <td style={{ padding: '6px 10px' }}>{r[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <div style={{ fontSize: 13, color: '#444', lineHeight: 1.85, marginTop: 10 }}>
           Other aspects — such as military training, command and control, intelligence and counterintelligence, reconnaissance, logistics, civilian-military cooperation, and alliances — all matter and can be decisive in minor and major wars, but are difficult to quantify.
