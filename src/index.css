@@ -71,3 +71,13 @@ body::-webkit-scrollbar {
 html, body {
   overflow-x: hidden;
 }
+
+.wmi-nav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.wmi-nav::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

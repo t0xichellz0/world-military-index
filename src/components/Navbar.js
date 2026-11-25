@@ -3,7 +3,7 @@ import React from 'react';
 export default function Navbar({ page, setPage }) {
   const tabs = ['Rankings', 'Methodology', 'About Us'];
   return (
-    <nav style={{
+    <nav className="wmi-nav" style={{
       borderTop: '4px solid #1a1a1a',
       borderBottom: '1px solid #1a1a1a',
       padding: '0 24px',
@@ -11,6 +11,7 @@ export default function Navbar({ page, setPage }) {
       justifyContent: 'center',
       gap: 8,
       overflowX: 'auto',
+      overflowY: 'hidden',
       background: '#ffffff'
     }}>
       {tabs.map(tab => (
