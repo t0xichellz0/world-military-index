@@ -4,24 +4,27 @@ export default function Navbar({ page, setPage }) {
   const tabs = ['Rankings', 'Methodology', 'About Us'];
   return (
     <nav style={{
-      borderBottom: '1px solid #d0d0d0',
-      padding: '0 32px',
+      borderTop: '4px solid #1a1a1a',
+      borderBottom: '1px solid #1a1a1a',
+      padding: '0 24px',
       display: 'flex',
-      gap: 4,
+      justifyContent: 'center',
+      gap: 8,
       overflowX: 'auto',
-      background: '#fafafa'
+      background: '#ffffff'
     }}>
       {tabs.map(tab => (
         <button key={tab} onClick={() => setPage(tab)} style={{
           background: 'none',
           border: 'none',
-          borderBottom: page === tab ? '2px solid #1a1a1a' : '2px solid transparent',
-          color: page === tab ? '#1a1a1a' : '#666',
-          padding: '14px 16px',
+          borderBottom: page === tab ? '3px solid #1a1a1a' : '3px solid transparent',
+          marginBottom: -1,
+          color: page === tab ? '#1a1a1a' : '#6b6b6b',
+          padding: '16px 20px 13px',
           cursor: 'pointer',
-          fontSize: 13,
-          fontFamily: "'Helvetica Neue', Arial, sans-serif",
-          letterSpacing: 0.5,
+          fontSize: 12.5,
+          fontWeight: page === tab ? 700 : 600,
+          letterSpacing: 2,
           textTransform: 'uppercase',
           whiteSpace: 'nowrap',
           flexShrink: 0
