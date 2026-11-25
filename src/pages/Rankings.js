@@ -27,7 +27,7 @@ export default function Rankings() {
 
   return (
     <div style={{ padding: '40px 24px 24px', maxWidth: 880, margin: '0 auto' }}>
-      <PageLogo subtitle="The world's military powers, scored out of 100" />
+      <PageLogo />
       {data.map((country, i) => (
         <CountryCard
           key={country.Country}
