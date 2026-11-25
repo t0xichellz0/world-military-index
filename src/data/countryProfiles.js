@@ -469,7 +469,7 @@ export const PROFILES = {
     },
     combat: {
       major_wars: field('None formally classified in 2022–2026 (Uppsala Conflict Data Program 2026).'),
-      minor_wars: field('None scored in 2022–2026. Australian support to the 2026 Iran war (RAAF and Army deployments; AUKUS submarine crew reported in the sinking of IRIS Dena) is a borderline case and is not scored as a combat party (Uppsala Conflict Data Program 2026; press reporting).'),
+      minor_wars: field('Support role in the 2026 Iran war: RAAF and Army personnel deployed, and an AUKUS submarine crew reported in the sinking of IRIS Dena. Scored at the minor-war level as a supporting party (Uppsala Conflict Data Program 2026; press reporting).'),
     },
     budget: {
       annual_usd: field('$37.3 billion (2025) (IISS Military Balance 2026).'),
