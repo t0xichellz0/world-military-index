@@ -7,7 +7,7 @@ export const PROFILES = {
   'United States': {
     overview: 'The United States maintains the largest defence budget in the world and a full nuclear triad, with sustained power projection capability across all domains.',
     manpower: {
-      active_personnel: field('1,349,597 (DMDC, March 2026)'),
+      active_personnel: field('1,340,150 (IISS Military Balance 2026)'),
       conscription: field('No - all-volunteer force'),
     },
     land: { tanks: field('2,640 (IISS 2026)') },
