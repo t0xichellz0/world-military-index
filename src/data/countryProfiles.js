@@ -350,7 +350,7 @@ export const PROFILES = {
       annual_usd: field('Estimate only - North Korea does not publish official defence spending figures.'),
     },
     willingness: {
-      note: field('50% (placeholder - authoritarian-state default per Center for Geopolitical Studies Riga methodology; no independent survey data exists for North Korea).'),
+      note: field('50% (placeholder, V-Dem closed autocracy default; no independent survey data exists for North Korea).'),
     },
   },
 
@@ -650,7 +650,7 @@ export const PROFILES = {
       annual_usd: field('$5.8 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
-      note: field('50% (placeholder - semi-authoritarian/hybrid regime default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
+      note: field('50% (placeholder, V-Dem electoral autocracy default; no independent survey data available).'),
     },
   },
 
@@ -700,7 +700,7 @@ export const PROFILES = {
       annual_usd: field('$25.2 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
-      note: field('50% (placeholder - authoritarian-state default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
+      note: field('50% (placeholder, V-Dem electoral autocracy default; no independent survey data available).'),
     },
   },
 
@@ -750,7 +750,7 @@ export const PROFILES = {
       annual_usd: field('$18.0 billion (2025) (IISS Military Balance 2026).'),
     },
     willingness: {
-      note: field('50% (placeholder - dominant-party/electoral-authoritarian default per Center for Geopolitical Studies Riga methodology; no independent survey data available).'),
+      note: field('50% (placeholder, V-Dem electoral autocracy default; no independent survey data available).'),
     },
   },
 
