@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSheetData } from '../data/useSheetData';
 import CountryCard from '../components/CountryCard';
 import CountryProfile from './CountryProfile';
 import PageLogo from '../components/PageLogo';
 
-export default function Rankings() {
+export default function Rankings({ countryName, onOpen, onBack }) {
   const { data, loading } = useSheetData();
-  const [selectedCountry, setSelectedCountry] = useState(null);
+  const selectedCountry = countryName ? data.find(c => c.Country === countryName) : null;
 
   if (loading) return (
     <div style={{ textAlign: 'center', padding: 80, color: '#666', fontSize: 13 }}>
@@ -20,7 +20,7 @@ export default function Rankings() {
       <CountryProfile
         country={selectedCountry}
         rank={rank}
-        onBack={() => setSelectedCountry(null)}
+        onBack={onBack}
       />
     );
   }
@@ -33,7 +33,7 @@ export default function Rankings() {
           key={country.Country}
           country={country}
           rank={i + 1}
-          onClick={() => setSelectedCountry(country)}
+          onClick={() => onOpen(country.Country)}
         />
       ))}
     </div>

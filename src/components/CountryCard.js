@@ -53,7 +53,8 @@ export default function CountryCard({ country, rank, onClick }) {
         background: '#ffffff',
         borderBottom: '1px solid #cfcfcf',
         padding: '30px 4px 28px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        transition: 'background 0.25s ease'
       }}
       onMouseEnter={e => {
         e.currentTarget.style.background = '#fafafa';
