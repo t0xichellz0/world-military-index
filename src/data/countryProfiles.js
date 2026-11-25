@@ -37,7 +37,7 @@ export const PROFILES = {
     },
     land: { tanks: field('3,630 (IISS 2026)') },
     airpower: { fighters: field('773 (IISS 2026)') },
-    naval: { total_assets: field('275 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('194 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -62,7 +62,7 @@ export const PROFILES = {
     },
     land: { tanks: field('4,700 (IISS 2026)') },
     airpower: { fighters: field('1,912 (IISS 2026)') },
-    naval: { total_assets: field('395 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('313 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -87,7 +87,7 @@ export const PROFILES = {
     },
     land: { tanks: field('400 (IISS 2026)') },
     airpower: { fighters: field('316 (IISS 2026)') },
-    naval: { total_assets: field('22 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('14 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(false),
@@ -112,7 +112,7 @@ export const PROFILES = {
     },
     land: { tanks: field('1,323 (IISS 2026)') },
     airpower: { fighters: field('77 (IISS 2026)') },
-    naval: { total_assets: field('11 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('5 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -137,7 +137,7 @@ export const PROFILES = {
     },
     land: { tanks: field('3,750 (IISS 2026)') },
     airpower: { fighters: field('471 (IISS 2026)') },
-    naval: { total_assets: field('103 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('64 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(true),
@@ -162,7 +162,7 @@ export const PROFILES = {
     },
     land: { tanks: field('213 (IISS 2026)') },
     airpower: { fighters: field('151 (IISS 2026)') },
-    naval: { total_assets: field('42 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('34 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(false),
@@ -187,7 +187,7 @@ export const PROFILES = {
     },
     land: { tanks: field('200 (IISS 2026)') },
     airpower: { fighters: field('226 (IISS 2026)') },
-    naval: { total_assets: field('70 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('51 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(false),
@@ -237,7 +237,7 @@ export const PROFILES = {
     },
     land: { tanks: field('347 (IISS 2026)') },
     airpower: { fighters: field('340 (IISS 2026)') },
-    naval: { total_assets: field('108 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('102 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -262,7 +262,7 @@ export const PROFILES = {
     },
     land: { tanks: field('2,210 (IISS 2026)') },
     airpower: { fighters: field('426 (IISS 2026)') },
-    naval: { total_assets: field('111 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('77 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -287,7 +287,7 @@ export const PROFILES = {
     },
     land: { tanks: field('2,381 (IISS 2026)') },
     airpower: { fighters: field('293 (IISS 2026)') },
-    naval: { total_assets: field('89 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('56 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -312,7 +312,7 @@ export const PROFILES = {
     },
     land: { tanks: field('2,577 (IISS 2026)') },
     airpower: { fighters: field('375 (IISS 2026)') },
-    naval: { total_assets: field('35 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('27 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(false),
@@ -337,7 +337,7 @@ export const PROFILES = {
     },
     land: { tanks: field('3,500 (IISS 2026)') },
     airpower: { fighters: field('431 (IISS 2026)') },
-    naval: { total_assets: field('172 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('113 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(true),
       has_triad: field(false),
@@ -362,7 +362,7 @@ export const PROFILES = {
     },
     land: { tanks: field('150 (IISS 2026)') },
     airpower: { fighters: field('138 (IISS 2026)') },
-    naval: { total_assets: field('44 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('35 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -387,7 +387,7 @@ export const PROFILES = {
     },
     land: { tanks: field('292 (IISS 2026)') },
     airpower: { fighters: field('71 (IISS 2026)') },
-    naval: { total_assets: field('35 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('18 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -412,7 +412,7 @@ export const PROFILES = {
     },
     land: { tanks: field('103 (IISS 2026)') },
     airpower: { fighters: field('49 (IISS 2026)') },
-    naval: { total_assets: field('126 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('67 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -437,7 +437,7 @@ export const PROFILES = {
     },
     land: { tanks: field('1,513 (IISS 2026)') },
     airpower: { fighters: field('201 (IISS 2026)') },
-    naval: { total_assets: field('64 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('40 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -462,7 +462,7 @@ export const PROFILES = {
     },
     land: { tanks: field('36 (IISS 2026)') },
     airpower: { fighters: field('96 (IISS 2026)') },
-    naval: { total_assets: field('37 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('21 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -487,7 +487,7 @@ export const PROFILES = {
     },
     land: { tanks: field('274 (IISS 2026)') },
     airpower: { fighters: field('182 (IISS 2026)') },
-    naval: { total_assets: field('38 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('22 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -512,7 +512,7 @@ export const PROFILES = {
     },
     land: { tanks: field('2,480 (IISS 2026)') },
     airpower: { fighters: field('294 (IISS 2026)') },
-    naval: { total_assets: field('88 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('42 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -537,7 +537,7 @@ export const PROFILES = {
     },
     land: { tanks: field('1,085 (IISS 2026)') },
     airpower: { fighters: field('288 (IISS 2026)') },
-    naval: { total_assets: field('28 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('19 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -562,7 +562,7 @@ export const PROFILES = {
     },
     land: { tanks: field('897 (IISS 2026)') },
     airpower: { fighters: field('77 (IISS 2026)') },
-    naval: { total_assets: field('34 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('30 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -587,7 +587,7 @@ export const PROFILES = {
     },
     land: { tanks: field('830 (IISS 2026)') },
     airpower: { fighters: field('323 (IISS 2026)') },
-    naval: { total_assets: field('91 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('54 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -612,7 +612,7 @@ export const PROFILES = {
     },
     land: { tanks: field('1,379 (IISS 2026)') },
     airpower: { fighters: field('70 (IISS 2026)') },
-    naval: { total_assets: field('76 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('38 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -637,7 +637,7 @@ export const PROFILES = {
     },
     land: { tanks: field('394 (IISS 2026)') },
     airpower: { fighters: field('70 (IISS 2026)') },
-    naval: { total_assets: field('51 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('33 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -662,7 +662,7 @@ export const PROFILES = {
     },
     land: { tanks: field('110 (IISS 2026)') },
     airpower: { fighters: field('99 (IISS 2026)') },
-    naval: { total_assets: field('20 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('16 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -687,7 +687,7 @@ export const PROFILES = {
     },
     land: { tanks: field('1,395 (IISS 2026)') },
     airpower: { fighters: field('99 (IISS 2026)') },
-    naval: { total_assets: field('37 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('21 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -712,7 +712,7 @@ export const PROFILES = {
     },
     land: { tanks: field('74 (IISS 2026)') },
     airpower: { fighters: field('89 (IISS 2026)') },
-    naval: { total_assets: field('25 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('20 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
@@ -737,7 +737,7 @@ export const PROFILES = {
     },
     land: { tanks: field('96 (IISS 2026)') },
     airpower: { fighters: field('99 (IISS 2026)') },
-    naval: { total_assets: field('36 (IISS Military Balance 2026)') },
+    naval: { total_assets: field('26 (IISS Military Balance 2026)') },
     nuclear: {
       has_nuclear: field(false),
       has_triad: field(false),
