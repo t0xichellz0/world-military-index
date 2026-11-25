@@ -27,7 +27,8 @@ export default function Navbar({ page, setPage }) {
           letterSpacing: 2,
           textTransform: 'uppercase',
           whiteSpace: 'nowrap',
-          flexShrink: 0
+          flexShrink: 0,
+          transition: 'color 0.2s ease, border-color 0.2s ease'
         }}>
           {tab}
         </button>
