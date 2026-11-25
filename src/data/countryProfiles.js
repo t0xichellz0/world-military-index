@@ -14,8 +14,8 @@ export const PROFILES = {
     airpower: { fighters: field('2,865 (IISS 2026)') },
     naval: { total_assets: field('336 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: true(true),
+      has_nuclear: field(true),
+      has_triad: field(true),
     },
     combat: {
       major_wars: field('War with Iran (2026–) (Uppsala Conflict Data Program 2026).'),
@@ -39,8 +39,8 @@ export const PROFILES = {
     airpower: { fighters: field('773 (IISS 2026)') },
     naval: { total_assets: field('275 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: true(true),
+      has_nuclear: field(true),
+      has_triad: field(true),
     },
     combat: {
       major_wars: field('War with Ukraine (2022–) (Uppsala Conflict Data Program 2026).'),
@@ -64,8 +64,8 @@ export const PROFILES = {
     airpower: { fighters: field('1,912 (IISS 2026)') },
     naval: { total_assets: field('405 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: true(true),
+      has_nuclear: field(true),
+      has_triad: field(true),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -89,8 +89,8 @@ export const PROFILES = {
     airpower: { fighters: field('316 (IISS 2026)') },
     naval: { total_assets: field('57 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: false(true),
+      has_nuclear: field(true),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('War in Gaza (2023–) (Uppsala Conflict Data Program 2026).'),
@@ -114,8 +114,8 @@ export const PROFILES = {
     airpower: { fighters: field('77 (IISS 2026)') },
     naval: { total_assets: field('39 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('War with Russia (2022–) (Uppsala Conflict Data Program 2026).'),
@@ -139,8 +139,8 @@ export const PROFILES = {
     airpower: { fighters: field('471 (IISS 2026)') },
     naval: { total_assets: field('218 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: true(true),
+      has_nuclear: field(true),
+      has_triad: field(true),
     },
     combat: {
       major_wars: field('None classified as major war in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -164,8 +164,8 @@ export const PROFILES = {
     airpower: { fighters: field('151 (IISS 2026)') },
     naval: { total_assets: field('60 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: false(false),
+      has_nuclear: field(true),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -189,8 +189,8 @@ export const PROFILES = {
     airpower: { fighters: field('226 (IISS 2026)') },
     naval: { total_assets: field('75 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: false(true),
+      has_nuclear: field(true),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -214,8 +214,8 @@ export const PROFILES = {
     airpower: { fighters: field('138 (IISS 2026)') },
     naval: { total_assets: field('34 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -239,8 +239,8 @@ export const PROFILES = {
     airpower: { fighters: field('340 (IISS 2026)') },
     naval: { total_assets: field('108 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -264,8 +264,8 @@ export const PROFILES = {
     airpower: { fighters: field('426 (IISS 2026)') },
     naval: { total_assets: field('138 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -289,8 +289,8 @@ export const PROFILES = {
     airpower: { fighters: field('293 (IISS 2026)') },
     naval: { total_assets: field('96 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None formally classified as inter-state major war in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -314,8 +314,8 @@ export const PROFILES = {
     airpower: { fighters: field('375 (IISS 2026)') },
     naval: { total_assets: field('46 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: false(true),
+      has_nuclear: field(true),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('War-level fighting on the Afghan border and against anti-state insurgents (October 2025–), with 2025 the deadliest year for combat deaths in a decade (UCDP; UN and Pakistani security-monitor reporting 2026).'),
@@ -339,8 +339,8 @@ export const PROFILES = {
     airpower: { fighters: field('431 (IISS 2026)') },
     naval: { total_assets: field('480 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: true(true),
-      has_triad: false(true),
+      has_nuclear: field(true),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None formally classified in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -364,8 +364,8 @@ export const PROFILES = {
     airpower: { fighters: field('138 (IISS 2026)') },
     naval: { total_assets: field('52 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -389,8 +389,8 @@ export const PROFILES = {
     airpower: { fighters: field('71 (IISS 2026)') },
     naval: { total_assets: field('62 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -414,8 +414,8 @@ export const PROFILES = {
     airpower: { fighters: field('49 (IISS 2026)') },
     naval: { total_assets: field('251 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -439,8 +439,8 @@ export const PROFILES = {
     airpower: { fighters: field('201 (IISS 2026)') },
     naval: { total_assets: field('101 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('2026 Iran war — direct conflict with Israel and the United States, Feb–May 2026 (Uppsala Conflict Data Program 2026).'),
@@ -464,8 +464,8 @@ export const PROFILES = {
     airpower: { fighters: field('96 (IISS 2026)') },
     naval: { total_assets: field('37 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None formally classified in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -489,8 +489,8 @@ export const PROFILES = {
     airpower: { fighters: field('182 (IISS 2026)') },
     naval: { total_assets: field('44 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -514,8 +514,8 @@ export const PROFILES = {
     airpower: { fighters: field('294 (IISS 2026)') },
     naval: { total_assets: field('138 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -539,8 +539,8 @@ export const PROFILES = {
     airpower: { fighters: field('288 (IISS 2026)') },
     naval: { total_assets: field('115 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('Direct fighting with the Houthis in Yemen and Houthi attacks on Saudi territory (2026), following Iranian attacks on Saudi territory in February 2026; 2026 events are not yet coded by UCDP, so this classification is our assessment.'),
@@ -564,8 +564,8 @@ export const PROFILES = {
     airpower: { fighters: field('77 (IISS 2026)') },
     naval: { total_assets: field('34 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -589,8 +589,8 @@ export const PROFILES = {
     airpower: { fighters: field('323 (IISS 2026)') },
     naval: { total_assets: field('91 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -614,8 +614,8 @@ export const PROFILES = {
     airpower: { fighters: field('70 (IISS 2026)') },
     naval: { total_assets: field('95 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -639,8 +639,8 @@ export const PROFILES = {
     airpower: { fighters: field('70 (IISS 2026)') },
     naval: { total_assets: field('95 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in 2022–2026 (Uppsala Conflict Data Program 2026).'),
@@ -664,8 +664,8 @@ export const PROFILES = {
     airpower: { fighters: field('99 (IISS 2026)') },
     naval: { total_assets: field('173 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -689,8 +689,8 @@ export const PROFILES = {
     airpower: { fighters: field('99 (IISS 2026)') },
     naval: { total_assets: field('46 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -714,8 +714,8 @@ export const PROFILES = {
     airpower: { fighters: field('89 (IISS 2026)') },
     naval: { total_assets: field('25 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
@@ -739,8 +739,8 @@ export const PROFILES = {
     airpower: { fighters: field('99 (IISS 2026)') },
     naval: { total_assets: field('45 (IISS Military Balance 2026)') },
     nuclear: {
-      has_nuclear: false(false),
-      has_triad: false(false),
+      has_nuclear: field(false),
+      has_triad: field(false),
     },
     combat: {
       major_wars: field('None in past five years (Uppsala Conflict Data Program 2026).'),
