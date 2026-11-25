@@ -32,7 +32,7 @@ const TIERS = [
   {
     tier: 'TIER V',
     name: 'Autonomous / AI-Enabled',
-    cost: 'Variable — Emerging',
+    cost: 'Variable - Emerging',
     desc: 'Minimal or no human control in targeting loop. Fastest-developing category. Classification methodology under active peer review.',
     examples: ['XQ-58A Valkyrie', 'Loyal Wingman programs', 'AI swarm systems'],
   },
@@ -42,18 +42,18 @@ const COUNTRIES = [
   {
     name: 'United States',
     tiers: {
-      'TIER I': { level: 'Medium', note: 'Scaling up — historically focused on higher tiers' },
+      'TIER I': { level: 'Medium', note: 'Scaling up - historically focused on higher tiers' },
       'TIER II': { level: 'High', note: 'Switchblade proven in combat' },
-      'TIER III': { level: 'High', note: 'Large MQ-9 Reaper fleet — 135 operational (May 2026)' },
-      'TIER IV': { level: 'Dominant', note: 'RQ-4 Global Hawk — world leader' },
+      'TIER III': { level: 'High', note: 'Large MQ-9 Reaper fleet - 135 operational (May 2026)' },
+      'TIER IV': { level: 'Dominant', note: 'RQ-4 Global Hawk - world leader' },
       'TIER V': { level: 'High', note: 'XQ-58A Valkyrie, active AI programs' },
     }
   },
   {
     name: 'Russia',
     tiers: {
-      'TIER I': { level: 'Dominant', note: '7.3M FPV drones planned for 2026 — world scale production' },
-      'TIER II': { level: 'Dominant', note: 'Shahed-136 & Lancet-3 — extensively combat proven' },
+      'TIER I': { level: 'Dominant', note: '7.3M FPV drones planned for 2026 - world scale production' },
+      'TIER II': { level: 'Dominant', note: 'Shahed-136 & Lancet-3 - extensively combat proven' },
       'TIER III': { level: 'Low', note: 'Limited MALE capability' },
       'TIER IV': { level: 'Minimal', note: 'Near-zero HALE assets' },
       'TIER V': { level: 'Low', note: 'Early development stage' },
@@ -63,18 +63,18 @@ const COUNTRIES = [
     name: 'China',
     tiers: {
       'TIER I': { level: 'High', note: 'Large scale domestic production capacity' },
-      'TIER II': { level: 'High', note: 'ASN-301 loitering munition — Harpy-class' },
-      'TIER III': { level: 'High', note: 'Wing Loong II — exported to multiple states' },
+      'TIER II': { level: 'High', note: 'ASN-301 loitering munition - Harpy-class' },
+      'TIER III': { level: 'High', note: 'Wing Loong II - exported to multiple states' },
       'TIER IV': { level: 'High', note: 'WZ-7 Soaring Dragon operational' },
-      'TIER V': { level: 'High', note: 'Active AI drone programs — significant investment' },
+      'TIER V': { level: 'High', note: 'Active AI drone programs - significant investment' },
     }
   },
   {
     name: 'Israel',
     tiers: {
       'TIER I': { level: 'Medium', note: 'Active deployment in Gaza operations' },
-      'TIER II': { level: 'High', note: 'IAI Harop — 1,200 built, combat proven' },
-      'TIER III': { level: 'High', note: 'Heron TP — long endurance, operational' },
+      'TIER II': { level: 'High', note: 'IAI Harop - 1,200 built, combat proven' },
+      'TIER III': { level: 'High', note: 'Heron TP - long endurance, operational' },
       'TIER IV': { level: 'Medium', note: 'Limited HALE capability' },
       'TIER V': { level: 'High', note: 'Advanced AI integration in existing systems' },
     }
@@ -82,11 +82,11 @@ const COUNTRIES = [
   {
     name: 'Ukraine',
     tiers: {
-      'TIER I': { level: 'Dominant', note: '8M+ FPV/year production capacity — world leader by necessity' },
-      'TIER II': { level: 'High', note: 'Domestic Beaver & Baba Yaga — combat proven' },
+      'TIER I': { level: 'Dominant', note: '8M+ FPV/year production capacity - world leader by necessity' },
+      'TIER II': { level: 'High', note: 'Domestic Beaver & Baba Yaga - combat proven' },
       'TIER III': { level: 'Medium', note: 'Bayraktar TB2 + developing domestic platforms' },
       'TIER IV': { level: 'Minimal', note: 'Near-zero HALE assets' },
-      'TIER V': { level: 'Low', note: 'Early AI integration — developing rapidly' },
+      'TIER V': { level: 'Low', note: 'Early AI integration - developing rapidly' },
     }
   },
 ];
@@ -116,7 +116,7 @@ export default function Drones() {
           Drone Arsenal Classification
         </div>
         <div style={{ fontSize: 13.5, color: '#444', lineHeight: 1.8 }}>
-          No existing military index accounts for drone capability. Global Firepower ignores drones entirely. This section proposes the first open-source tier-based classification framework for comparing drone arsenals across states. Scores are qualitative assessments based on open-source intelligence — not yet quantified. Methodology under active peer review.
+          No existing military index accounts for drone capability. Global Firepower ignores drones entirely. This section proposes the first open-source tier-based classification framework for comparing drone arsenals across states. Scores are qualitative assessments based on open-source intelligence - not yet quantified. Methodology under active peer review.
         </div>
       </div>
 
