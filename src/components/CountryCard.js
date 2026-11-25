@@ -45,44 +45,41 @@ const CATEGORIES = [
 export default function CountryCard({ country, rank, onClick }) {
   const countryCode = COUNTRY_CODES[country.Country];
 
-
   return (
     <div
       onClick={onClick}
+      className="wmi-card"
       style={{
         background: '#ffffff',
-        border: '1px solid #ddd',
-        borderRadius: 4,
-        padding: '24px 28px',
-        marginBottom: 14,
-        borderLeft: rank <= 3 ? '3px solid #1a1a1a' : '3px solid #ddd',
-        cursor: 'pointer',
-        transition: 'all 0.15s ease',
-        fontFamily: "'Helvetica Neue', Arial, sans-serif"
+        borderBottom: '1px solid #cfcfcf',
+        padding: '30px 4px 28px',
+        cursor: 'pointer'
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = '#1a1a1a';
         e.currentTarget.style.background = '#fafafa';
+        const n = e.currentTarget.querySelector('.wmi-name');
+        if (n) n.style.textDecoration = 'underline';
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.borderColor = rank <= 3 ? '#1a1a1a' : '#ddd';
         e.currentTarget.style.background = '#ffffff';
+        const n = e.currentTarget.querySelector('.wmi-name');
+        if (n) n.style.textDecoration = 'none';
       }}
     >
       <div style={{
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        marginBottom: 20
+        marginBottom: 22
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
           <div style={{
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            fontSize: 26,
-            fontWeight: 700,
-            minWidth: 36,
-            color: '#999',
-            lineHeight: 1
+            fontSize: 34,
+            fontWeight: 400,
+            minWidth: 44,
+            color: rank <= 3 ? '#1a1a1a' : '#a0a0a0',
+            lineHeight: 1,
+            fontVariantNumeric: 'lining-nums tabular-nums'
           }}>
             {rank}
           </div>
@@ -90,8 +87,8 @@ export default function CountryCard({ country, rank, onClick }) {
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 10,
-              marginBottom: 3
+              gap: 12,
+              marginBottom: 5
             }}>
               {countryCode && (
                 <img
@@ -100,24 +97,27 @@ export default function CountryCard({ country, rank, onClick }) {
                   style={{
                     width: 28,
                     height: 'auto',
-                    borderRadius: 2,
-                    border: '1px solid #ddd',
+                    border: '1px solid #cfcfcf',
                     display: 'block'
                   }}
                 />
               )}
-              <div style={{
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                fontSize: 20,
-                fontWeight: 700,
-                color: '#1a1a1a'
+              <div className="wmi-name" style={{
+                fontSize: 25,
+                fontWeight: 600,
+                color: '#1a1a1a',
+                letterSpacing: -0.2,
+                textUnderlineOffset: 5,
+                textDecorationThickness: 1
               }}>
                 {country.Country}
               </div>
             </div>
             <div style={{
-              fontSize: 11.5,
-              color: '#888'
+              fontSize: 11,
+              color: '#777',
+              letterSpacing: 1.5,
+              textTransform: 'uppercase'
             }}>
               View full profile →
             </div>
@@ -125,63 +125,59 @@ export default function CountryCard({ country, rank, onClick }) {
         </div>
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div style={{
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            fontSize: 30,
+            fontSize: 42,
             fontWeight: 600,
             color: '#1a1a1a',
             lineHeight: 1,
-            fontVariantNumeric: 'tabular-nums'
+            fontVariantNumeric: 'lining-nums tabular-nums'
           }}>
             {Number(country.Total).toFixed(1)}
           </div>
           <div style={{
             fontSize: 10,
-            color: '#999',
-            marginTop: 5,
-            letterSpacing: 1
+            color: '#777',
+            marginTop: 7,
+            letterSpacing: 2
           }}>
             OUT OF 100
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingLeft: 66 }} className="wmi-bars">
         {CATEGORIES.map(cat => {
           const val = country[cat.key] || 0;
           const pct = Math.min(Math.round((val / cat.max) * 100), 100);
           return (
-            <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-              <div style={{
-                fontSize: 12.5,
-                color: '#555',
-                width: 165,
+            <div key={cat.key} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <div className="wmi-cat-label" style={{
+                fontSize: 13.5,
+                color: '#444',
+                width: 170,
                 flexShrink: 0
               }}>
                 {cat.label}
               </div>
               <div style={{
                 flex: 1,
-                height: 5,
-                background: '#eee',
-                borderRadius: 2,
-                overflow: 'hidden'
+                height: 3,
+                background: '#e6e6e6'
               }}>
                 <div style={{
                   width: `${pct}%`,
                   height: '100%',
-                  background: '#555',
-                  borderRadius: 2,
+                  background: '#1a1a1a',
                   transition: 'width 0.5s ease'
                 }} />
               </div>
               <div style={{
-                fontSize: 12.5,
+                fontSize: 13.5,
                 color: '#1a1a1a',
-                width: 38,
+                width: 42,
                 textAlign: 'right',
                 flexShrink: 0,
                 fontWeight: 600,
-                fontVariantNumeric: 'tabular-nums'
+                fontVariantNumeric: 'lining-nums tabular-nums'
               }}>
                 {val % 1 === 0 ? val : val.toFixed(2)}
               </div>

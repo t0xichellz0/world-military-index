@@ -6,7 +6,7 @@ export default function Footer() {
       borderTop: '1px solid #d0d0d0',
       marginTop: 40,
       padding: '32px 40px',
-      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+      fontFamily: "'Source Serif 4', Georgia, 'Times New Roman', serif"
     }}>
       <div style={{
         maxWidth: 920,
@@ -21,19 +21,19 @@ export default function Footer() {
           style={{ height: 60, width: 'auto', flexShrink: 0 }}
         />
         <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 15, fontWeight: 700, color: '#1a1a1a', marginBottom: 8 }}>
+          <div style={{ fontFamily: "'Source Serif 4', Georgia, 'Times New Roman', serif", fontSize: 15, fontWeight: 700, color: '#1a1a1a', marginBottom: 8 }}>
             Center for Geopolitical Studies Riga
           </div>
-          <div style={{ fontSize: 12.5, color: '#666', lineHeight: 1.7, maxWidth: 600, marginBottom: 14 }}>
+          <div style={{ fontSize: 14, color: '#555', lineHeight: 1.7, maxWidth: 600, marginBottom: 14 }}>
             Established in 2022, the Center for Geopolitical Studies Riga is an independent research think-tank based in Latvia. It focuses on security dilemmas and geopolitical rivalries in the Baltic Sea region and beyond.
           </div>
           <div style={{ display: 'flex', gap: 16, marginBottom: 10, flexWrap: 'wrap' }}>
-            <a href="https://www.linkedin.com/company/geopolitics-center/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#1a1a1a', textDecoration: 'underline' }}>LinkedIn</a>
-            <a href="https://twitter.com/RigaGeopolitics" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#1a1a1a', textDecoration: 'underline' }}>X / Twitter</a>
-            <a href="https://www.instagram.com/geopoliticsriga" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#1a1a1a', textDecoration: 'underline' }}>Instagram</a>
-            <a href="https://www.facebook.com/geopolitics.center" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#1a1a1a', textDecoration: 'underline' }}>Facebook</a>
+            <a href="https://www.linkedin.com/company/geopolitics-center/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: '#1a1a1a', textDecoration: 'underline', textUnderlineOffset: 3 }}>LinkedIn</a>
+            <a href="https://twitter.com/RigaGeopolitics" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: '#1a1a1a', textDecoration: 'underline', textUnderlineOffset: 3 }}>X / Twitter</a>
+            <a href="https://www.instagram.com/geopoliticsriga" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: '#1a1a1a', textDecoration: 'underline', textUnderlineOffset: 3 }}>Instagram</a>
+            <a href="https://www.facebook.com/geopolitics.center" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: '#1a1a1a', textDecoration: 'underline', textUnderlineOffset: 3 }}>Facebook</a>
           </div>
-          <div style={{ fontSize: 11, color: '#999' }}>
+          <div style={{ fontSize: 12, color: '#777' }}>
             Center for Geopolitical Studies Riga / Ģeopolitikas pētījumu centrs
           </div>
         </div>
