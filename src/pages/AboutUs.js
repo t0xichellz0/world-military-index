@@ -10,8 +10,7 @@ export default function AboutUs() {
       <div style={{ height: 8 }} />
 
       <div style={{
-        background: '#ffffff', border: '1px solid #ddd',
-        borderRadius: 4, padding: '32px'
+        background: '#ffffff', padding: '0 4px'
       }}>
         <div style={{ fontSize: 17, color: '#2a2a2a', lineHeight: 1.8, marginBottom: 18 }}>
           The Center for Geopolitical Studies Riga is an independent research think-tank based in Latvia. It focuses on security dilemmas and geopolitical rivalries in the Baltic Sea region and beyond.

@@ -144,7 +144,7 @@ export default function CountryCard({ country, rank, onClick }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingLeft: 66 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingLeft: 66 }} className="wmi-bars">
         {CATEGORIES.map(cat => {
           const val = country[cat.key] || 0;
           const pct = Math.min(Math.round((val / cat.max) * 100), 100);

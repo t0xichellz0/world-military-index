@@ -10,7 +10,7 @@ export default function PageLogo({ subtitle }) {
       <img
         src="/wmi-logo.png"
         alt="World Military Index"
-        style={{ height: 130, width: 'auto', maxWidth: '100%' }}
+        style={{ height: 190, width: 'auto', maxWidth: '100%' }}
       />
       {subtitle && (
         <div style={{

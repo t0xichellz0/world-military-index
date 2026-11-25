@@ -31,8 +31,7 @@ export default function Methodology() {
       <PageLogo />
 
       <div style={{
-        background: '#fafafa', border: '1px solid #ddd',
-        borderRadius: 4, padding: '24px 28px', marginBottom: 24
+        padding: '0 4px', marginBottom: 40
       }}>
         <div style={{ fontSize: 12, letterSpacing: 2.5, color: '#1a1a1a', fontWeight: 700, marginBottom: 14, textTransform: 'uppercase' }}>
           Overview
@@ -51,15 +50,14 @@ export default function Methodology() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 36, marginBottom: 40 }}>
         {CATEGORIES.map(cat => (
           <div key={cat.title} style={{
-            background: '#ffffff', border: '1px solid #ddd',
-            borderRadius: 4, padding: '20px 22px'
+            background: '#ffffff', borderTop: '2px solid #1a1a1a',
+            padding: '16px 2px 4px'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
               <div style={{ fontFamily: "'Source Serif 4', Georgia, 'Times New Roman', serif", fontSize: 18, fontWeight: 600, color: '#1a1a1a' }}>{cat.title}</div>
               <div style={{
-                fontSize: 11, color: '#1a1a1a',
-                border: '1px solid #ccc',
-                padding: '3px 10px', borderRadius: 3, flexShrink: 0, marginLeft: 8
+                fontSize: 13, color: '#1a1a1a', fontWeight: 600,
+                letterSpacing: 1, flexShrink: 0, marginLeft: 8
               }}>{cat.weight}</div>
             </div>
             <div style={{ fontSize: 15, color: '#444', lineHeight: 1.7 }}>{cat.desc}</div>
@@ -68,8 +66,8 @@ export default function Methodology() {
       </div>
 
       <div style={{
-        background: '#ffffff', border: '1px solid #ddd',
-        borderRadius: 4, padding: '20px 24px'
+        background: '#ffffff', borderTop: '2px solid #1a1a1a',
+        padding: '20px 2px 0'
       }}>
         <div style={{ fontSize: 12, letterSpacing: 2.5, color: '#1a1a1a', fontWeight: 700, marginBottom: 14, textTransform: 'uppercase' }}>
           Caveats

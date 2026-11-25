@@ -105,9 +105,8 @@ export default function CountryProfile({ country, rank, onBack }) {
 
         {/* Hero */}
         <div style={{
-          background: '#ffffff', border: '1px solid #ddd', borderRadius: 4,
-          padding: '32px', marginBottom: 22,
-          borderLeft: rank <= 3 ? '3px solid #1a1a1a' : '3px solid #ddd'
+          background: '#ffffff', borderTop: '4px solid #1a1a1a', borderBottom: '1px solid #1a1a1a',
+          padding: '28px 4px 32px', marginBottom: 28
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 20 }}>
             <div>
@@ -142,7 +141,7 @@ export default function CountryProfile({ country, rank, onBack }) {
         </div>
 
         {!profile && (
-          <div style={{ background: '#fafafa', border: '1px solid #ddd', borderRadius: 4, padding: '60px 24px', textAlign: 'center' }}>
+          <div style={{ background: '#fafafa', borderTop: '2px solid #1a1a1a', padding: '60px 24px', textAlign: 'center' }}>
             <div style={{ fontFamily: "'Source Serif 4', Georgia, 'Times New Roman', serif", fontSize: 18, color: '#1a1a1a', marginBottom: 10 }}>Detailed data coming soon</div>
             <div style={{ fontSize: 13, color: '#666', maxWidth: 400, margin: '0 auto', lineHeight: 1.7 }}>
               Score breakdown is based on live ranking data. Full country summary is being verified against primary sources.

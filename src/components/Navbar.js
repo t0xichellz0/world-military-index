@@ -14,7 +14,7 @@ export default function Navbar({ page, setPage }) {
       background: '#ffffff'
     }}>
       {tabs.map(tab => (
-        <button key={tab} onClick={() => setPage(tab)} style={{
+        <button key={tab} className="wmi-tab" onClick={() => setPage(tab)} style={{
           background: 'none',
           border: 'none',
           borderBottom: page === tab ? '3px solid #1a1a1a' : '3px solid transparent',
